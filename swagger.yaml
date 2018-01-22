@@ -40,7 +40,6 @@ paths:
             application/json: |-
               {
                 "limit": 30,
-                "hasNext": false,
                 "items": [
                   {
                     "id": "2254c5d8-1f7a-3741-96a8-12349f7a612e",
@@ -231,7 +230,6 @@ paths:
             application/json: |-
               {
                 "limit": 5,
-                "hasNext": true,
                 "items": [
                     {
                         "id": "8e0c3099-fe15-352b-9f78-c4f72276826a",
@@ -310,7 +308,6 @@ paths:
             application/json: |-
               {
                 "limit": 2,
-                "hasNext": true,
                 "items": [
                     {
                         "id": "de27a266-2dbf-30a3-ac02-f32ebbab645d",
@@ -459,7 +456,6 @@ paths:
             application/json: |-
               {
                 "limit": 3,
-                "hasNext": false,
                 "items": [
                     {
                         "id": "684f6a64-9394-37dd-8258-efe15eca47d0",
@@ -682,7 +678,6 @@ paths:
             application/json: |-
               {
                 "limit": 2,
-                "hasNext": false,
                 "items": [
                     {
                         "id": "c19522c2-ecb3-3572-956a-5be07271b0cb",
@@ -862,7 +857,6 @@ paths:
             application/json: |-
               {
                 "limit": 3,
-                "hasNext": true,
                 "items": [
                   {
                     "id": "ff9da7b2-62a8-3d2a-8761-a2c449b58d25",
@@ -949,7 +943,6 @@ paths:
             application/json: |-
               {
                 "limit": 2,
-                "hasNext": true,
                 "items": [
                     {
                         "id": "cdb07f37-caed-38a2-8167-b075e91819ae",
@@ -1230,9 +1223,6 @@ paths:
             application/json: |-
               {
                 "limit": 5,
-                "offset": 0,
-                "hasNext": false,
-                "hasPrevious": false,
                 "items": [
                     {
                         "id": "3ddd967b-837c-3285-b04f-bc17433304b0",
@@ -1359,7 +1349,6 @@ paths:
             application/json: |-
               {
                   "limit": 2,
-                  "hasNext": false,
                   "items": [{
                       "id": "genre:horror",
                       "name": "Horror"
