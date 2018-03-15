@@ -30,7 +30,7 @@ paths:
       produces:
         - application/json
       parameters:
-        - $ref: '#/parameters/Limit'
+        - $ref: '#/parameters/Aliases'
       responses:
         200:
           description: ''
@@ -220,7 +220,7 @@ paths:
       parameters:
         - $ref: '#/parameters/PlatformId'
           in: path      
-        - $ref: '#/parameters/Limit'
+        - $ref: '#/parameters/Aliases'
       responses:
         200:
           description: ''
@@ -298,7 +298,9 @@ paths:
       parameters:
         - $ref: '#/parameters/PlatformId'
         - $ref: '#/parameters/RegionId'
-        - $ref: '#/parameters/Limit'
+        - $ref: '#/parameters/Aliases'
+        - $ref: '#/parameters/Date'
+          description: "Date of the Channel State to select, this will display channel names and attributes in the future or past."
       responses:
         200:
           description: ''
@@ -307,70 +309,78 @@ paths:
           examples:
             application/json: |-
               {
-                "limit": 2,
-                "items": [
-                    {
-                        "id": "de27a266-2dbf-30a3-ac02-f32ebbab645d",
-                        "epg": "101",
-                        "title": "BBC One Cambridgeshire",
-                        "url": "http://www.bbc.co.uk/tv/bbcone/live",
-                        "type": "tv",
-                        "hd": false,
-                        "regional": true,
-                        "media": [
-                            {
-                                "kind": "picture:logo",
-                                "rendition": {
-                                    "default": {
-                                        "href": "http://tv.static.press.net/logo/p131732.png"
-                                    },
-                                    "transparent-light": {
-                                        "href": "http://tv.static.press.net/logo/p2201211211664.png"
-                                    },
-                                    "transparent-dark": {
-                                        "href": "http://tv.static.press.net/logo/p1201211211664.png"
-                                    }
-                                }
-                            }
-                        ],
-                        "subject": [
-                            {
-                                "code": "channel:patv:1664",
-                                "profile": "channel"
-                            }
-                        ]
-                    },
-                    {
-                        "id": "ea93fc2f-662a-3b6a-b624-a38871945161",
-                        "epg": "102",
-                        "title": "BBC Two HD",
-                        "type": "tv",
-                        "hd": true,
-                        "regional": true,
-                        "media": [
-                            {
-                                "kind": "picture:logo",
-                                "rendition": {
-                                    "default": {
-                                        "href": "http://tv.static.press.net/logo/p142703.png"
-                                    },
-                                    "transparent-light": {
-                                        "href": "http://tv.static.press.net/logo/p2201303261782.png"
-                                    },
-                                    "transparent-dark": {
-                                        "href": "http://tv.static.press.net/logo/p1201303261782.png"
-                                    }
-                                }
-                            }
-                        ],
-                        "subject": [
-                            {
-                                "code": "channel:patv:1782",
-                                "profile": "channel"
-                            }
-                        ]
-                    }
-                ]
+              	"total": 3,
+              	"item": [{
+              			"id": "04fcb8ba-c11d-5e7b-a8e3-390358e312b2",
+              			"title": "BBC News Channel",
+              			"epg": "570",
+              			"attribute": [],
+              			"meta": {
+              				"live-stream": "http://www.bbc.co.uk/tv/bbcnews/live"
+              			},
+              			"tag": [{
+              				"code": "category:news",
+              				"name": "News"
+              			}],
+              			"subject": [{
+              					"code": "channel:patv:85",
+              					"profile": "channel"
+              				},
+              				{
+              					"code": "channel:youview:33511",
+              					"profile": "channel"
+              				}
+              			]
+              		},
+              		{
+              			"id": "031eb8fd-1ab5-5184-b9ec-14a888208d24",
+              			"title": "BBC News Channel HD",
+              			"epg": "503",
+              			"attribute": [
+              				"hd"
+              			],
+              			"meta": {
+              				"live-stream": "http://www.bbc.co.uk/tv/bbcnews/live"
+              			},
+              			"tag": [{
+              				"code": "category:news",
+              				"name": "News"
+              			}],
+              			"subject": [{
+              					"code": "channel:patv:1853",
+              					"profile": "channel"
+              				},
+              				{
+              					"code": "channel:youview:12257552",
+              					"profile": "channel"
+              				}
+              			]
+              		},
+              		{
+              			"id": "d2fa92ae-5756-5e7f-a3ce-a7fe35c844b9",
+              			"title": "BBC One Cambridgeshire",
+              			"epg": "962",
+              			"attribute": [
+              				"regional"
+              			],
+              			"meta": {
+              				"live-stream": "http://www.bbc.co.uk/tv/bbcone/live"
+              			},
+              			"tag": [{
+              				"code": "category:entertainment",
+              				"name": "Entertainment"
+              			}],
+              			"subject": [{
+              					"code": "channel:youview:1127",
+              					"profile": "channel"
+              				},
+              				{
+              					"code": "channel:patv:1664",
+              					"profile": "channel"
+              				}
+              			]
+              		}
+              	]
               }
 
   /channel/{channelId}:
@@ -395,35 +405,29 @@ paths:
           examples:
             application/json: |-
               {
-                "id": "de27a266-2dbf-30a3-ac02-f32ebbab645d",
-                "title": "BBC One Cambridgeshire",
-                "url": "http://www.bbc.co.uk/tv/bbcone/live",
-                "type": "tv",
-                "hd": false,
-                "regional": true,
-                "media": [
-                    {
-                        "kind": "picture:logo",
-                        "rendition": {
-                            "default": {
-                                "href": "http://tv.static.press.net/logo/p131732.png"
-                            },
-                            "transparent-light": {
-                                "href": "http://tv.static.press.net/logo/p2201211211664.png"
-                            },
-                            "transparent-dark": {
-                                "href": "http://tv.static.press.net/logo/p1201211211664.png"
-                            }
-                        }
-                    }
-                ],
-                "subject": [
-                    {
-                        "code": "channel:patv:1664",
-                        "profile": "channel"
-                    }
-                ]
-              }
+               	"id": "031eb8fd-1ab5-5184-b9ec-14a888208d24",
+               	"title": "BBC News Channel HD",
+               	"epg": "503",
+               	"attribute": [
+               		"hd"
+               	],
+               	"meta": {
+               		"live-stream": "http://www.bbc.co.uk/tv/bbcnews/live"
+               	},
+               	"tag": [{
+               		"code": "category:news",
+               		"name": "News"
+               	}],
+               	"subject": [{
+               			"code": "channel:patv:1853",
+               			"profile": "channel"
+               		},
+               		{
+               			"code": "channel:youview:12257552",
+               			"profile": "channel"
+               		}
+               	]
+               }
 
   /schedule:
     get:
@@ -442,10 +446,10 @@ paths:
           description: The identifier for the selected channel, either a channel or a combination of a platfrom and region must be passed to the schedule collection endpoint.
         - $ref: '#/parameters/Date'
           name: start
-          description: "Limit the schedule to ones scheduled from the selected date provided. For example 2014-04-14.\n\nThe 'end' parameter is typically used in combination with the 'end' param to form a date range.\n\n\n Formats Supported:\n\n\n - yyyy/MM/dd \n\n\n - yyyy/MM/ddThh:mm \n\n\n - now \n\n\n - now.plus.{nHours?} \n\n\n - now.minus.{nHours?} \n\n\n - tomorrow"
+          description: "Limit the schedule to ones scheduled from the selected date provided. For example 2014-04-14.\n\nThe 'end' parameter is typically used in combination with the 'end' param to form a date range.\n\n\n Formats Supported:\n\n\n - yyyy/MM/dd \n\n\n - yyyy/MM/ddThh:mm"
         - $ref: '#/parameters/Date'
           name: end
-          description: "Limit the schedule to ones scheduled to the selected date provided. For example: 2014-04-17.\n\nThe 'end' parameter is typically used in combination with the 'start' param to form a date range.\n\n\n Formats Supported:\n\n\n - yyyy/MM/dd \n\n\n - yyyy/MM/ddThh:mm \n\n\n - now \n\n\n - now.plus.{nHours?} \n\n\n - now.minus.{nHours?} \n\n\n - tomorrow"
+          description: "Limit the schedule to ones scheduled to the selected date provided. For example: 2014-04-17.\n\nThe 'end' parameter is typically used in combination with the 'start' param to form a date range.\n\n\n Formats Supported:\n\n\n - yyyy/MM/dd \n\n\n - yyyy/MM/ddThh:mm"
         - $ref: '#/parameters/Limit'
       responses:
         200:
@@ -519,35 +523,37 @@ paths:
                                 }
                             ]
                         },
-                        "stereo": false,
-                        "subtitles": true,
-                        "surround": false,
-                        "widescreen": true,
-                        "audioDescriptive": false,
-                        "interactive": false,
-                        "hd": true,
-                        "3d": false,
-                        "repeat": false,
-                        "premiere": false,
-                        "newSeries": false,
-                        "newEpisode": false,
-                        "lastInSeries": false,
-                        "live": false,
-                        "signLanguage": false,
-                        "inVision": true,
-                        "asLive": false,
-                        "bw": false,
-                        "film": false,
-                        "tvMovie": false,
-                        "foreignFilmWithEnglishSubtitles": false,
-                        "ratingWithPIN": false,
-                        "revistedRepeat": false,
-                        "omnibus": false,
-                        "followOn": false,
-                        "regionalInterest": false,
-                        "welsh": false,
-                        "ppv": false,
-                        "bwAndColour": false,
+                        "meta": {
+                          "stereo": false,
+                          "subtitles": true,
+                          "surround": false,
+                          "widescreen": true,
+                          "audioDescriptive": false,
+                          "interactive": false,
+                          "hd": true,
+                          "3d": false,
+                          "repeat": false,
+                          "premiere": false,
+                          "newSeries": false,
+                          "newEpisode": false,
+                          "lastInSeries": false,
+                          "live": false,
+                          "signLanguage": false,
+                          "inVision": true,
+                          "asLive": false,
+                          "bw": false,
+                          "film": false,
+                          "tvMovie": false,
+                          "foreignFilmWithEnglishSubtitles": false,
+                          "ratingWithPIN": false,
+                          "revistedRepeat": false,
+                          "omnibus": false,
+                          "followOn": false,
+                          "regionalInterest": false,
+                          "welsh": false,
+                          "ppv": false,
+                          "bwAndColour": false 
+                        },
                         "subject": [
                             {
                                 "code": "schedule_item:patv:124079730",
@@ -617,35 +623,37 @@ paths:
                                 }
                             ]
                         },
-                        "stereo": false,
-                        "subtitles": true,
-                        "surround": false,
-                        "widescreen": true,
-                        "audioDescriptive": false,
-                        "interactive": false,
-                        "hd": true,
-                        "3d": false,
-                        "repeat": false,
-                        "premiere": false,
-                        "newSeries": false,
-                        "newEpisode": false,
-                        "lastInSeries": false,
-                        "live": false,
-                        "signLanguage": false,
-                        "inVision": true,
-                        "asLive": false,
-                        "bw": false,
-                        "film": false,
-                        "tvMovie": false,
-                        "foreignFilmWithEnglishSubtitles": false,
-                        "ratingWithPIN": false,
-                        "revistedRepeat": false,
-                        "omnibus": false,
-                        "followOn": false,
-                        "regionalInterest": false,
-                        "welsh": false,
-                        "ppv": false,
-                        "bwAndColour": false,
+                        "meta": {
+                          "stereo": false,
+                          "subtitles": true,
+                          "surround": false,
+                          "widescreen": true,
+                          "audioDescriptive": false,
+                          "interactive": false,
+                          "hd": true,
+                          "3d": false,
+                          "repeat": false,
+                          "premiere": false,
+                          "newSeries": false,
+                          "newEpisode": false,
+                          "lastInSeries": false,
+                          "live": false,
+                          "signLanguage": false,
+                          "inVision": true,
+                          "asLive": false,
+                          "bw": false,
+                          "film": false,
+                          "tvMovie": false,
+                          "foreignFilmWithEnglishSubtitles": false,
+                          "ratingWithPIN": false,
+                          "revistedRepeat": false,
+                          "omnibus": false,
+                          "followOn": false,
+                          "regionalInterest": false,
+                          "welsh": false,
+                          "ppv": false,
+                          "bwAndColour": false, 
+                        },
                         "subject": [
                             {
                                 "code": "schedule_item:patv:124079879",
@@ -1457,3 +1465,9 @@ parameters:
     required: true
     type: string
     description: The identifier for the selected feature.
+  Aliases:  
+    name: aliases
+    in: query
+    required: false
+    type: boolean
+    description: Flag to display Legacy and Provider Ids.
