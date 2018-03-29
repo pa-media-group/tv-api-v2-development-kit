@@ -318,8 +318,8 @@ paths:
               			"meta": {
               				"live-stream": "http://www.bbc.co.uk/tv/bbcnews/live"
               			},
-              			"tag": [{
-              				"code": "category:news",
+              			"category": [{
+              				"code": "news",
               				"name": "News"
               			}],
               			"subject": [{
@@ -342,8 +342,8 @@ paths:
               			"meta": {
               				"live-stream": "http://www.bbc.co.uk/tv/bbcnews/live"
               			},
-              			"tag": [{
-              				"code": "category:news",
+              			"category": [{
+              				"code": "news",
               				"name": "News"
               			}],
               			"subject": [{
@@ -366,8 +366,8 @@ paths:
               			"meta": {
               				"live-stream": "http://www.bbc.co.uk/tv/bbcone/live"
               			},
-              			"tag": [{
-              				"code": "category:entertainment",
+              			"category": [{
+              				"code": "entertainment",
               				"name": "Entertainment"
               			}],
               			"subject": [{
@@ -414,8 +414,8 @@ paths:
                	"meta": {
                		"live-stream": "http://www.bbc.co.uk/tv/bbcnews/live"
                	},
-               	"tag": [{
-               		"code": "category:news",
+               	"category": [{
+               		"code": "news",
                		"name": "News"
                	}],
                	"subject": [{
