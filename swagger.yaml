@@ -685,94 +685,6 @@ paths:
           examples:
             application/json: |-
               {
-                "limit": 2,
-                "items": [
-                    {
-                        "id": "c19522c2-ecb3-3572-956a-5be07271b0cb",
-                        "title": "EastEnders",
-                        "type": "episode",
-                        "relatedAsset": {
-                            "series": {
-                                "id": "4a82698a-3b84-316b-8a8b-9fa6ba666c50",
-                                "title": "EastEnders",
-                                "tag": [],
-                                "media": [],
-                                "subject": [
-                                    {
-                                        "code": "asset:patv:8306",
-                                        "profile": "asset"
-                                    }
-                                ]
-                            }
-                        },
-                        "tag": [
-                            {
-                                "id": "genre:soap",
-                                "name": "Soap"
-                            },
-                            {
-                                "id": "genre:melodrama",
-                                "name": "Melodrama"
-                            },
-                            {
-                                "id": "genre:folkloric",
-                                "name": "Folkloric"
-                            }
-                        ],
-                        "summary": {
-                            "short": "The highs and lows of life in Albert Square.",
-                            "medium": "The highs and lows of life with the residents of Albert Square.",
-                            "long": "The highs and lows of life with the residents of Albert Square, Walford."
-                        },
-                        "media": [
-                            {
-                                "kind": "picture:series",
-                                "copyright": "©bbc",
-                                "expiryDate": "2027-02-01",
-                                "rendition": {
-                                    "default": {
-                                        "href": "http://tv.static.press.net/asset/webANXeastendersgen.jpg"
-                                    }
-                                }
-                            }
-                        ],
-                        "subject": [
-                            {
-                                "code": "asset:patv:2572788",
-                                "profile": "asset"
-                            }
-                        ]
-                    },
-                    {
-                        "id": "4a82698a-3b84-316b-8a8b-9fa6ba666c50",
-                        "title": "EastEnders",
-                        "type": "series",
-                        "tag": [],
-                        "summary": {
-                            "short": "The highs and lows of life in Albert Square",
-                            "medium": "Soap opera set in the fictional London borough of Walford in the East End of the capital, focusing on the lives of people in Albert Square, a Victorian square of terraced houses.",
-                            "long": "'EastEnders' was the brainchild of Julia Smith and Tony Holland, and premiered on BBC One in 1985. Storylines centre on people living and working in the fictional London borough of Walford. The series was originally screened as two half-hour episodes per week. Four episodes have been broadcast each week since August 2001. Within eight months of its launch, it reached number one in the ratings and has remained one of the top-rated programmes on British TV ever since. At the height of its popularity, more than 30 million viewers tuned in on Christmas Day 1986 to see Den Watts hand divorce papers to wife Angie. Large families have always been a strong feature of the long-running soap. The first central family was the Beale and Fowler clan consisting of Pauline Fowler, her husband Arthur, and teenage children Mark and Michelle. Pauline's twin brother Pete Beale, his wife Kathy and their son Ian lived nearby. Lou, Pauline and Pete's domineering mother, resided with Pauline. Strong female characters are central to the programme. Such characters have included Angie Watts, Kathy Mitchell, Sharon Rickman, Pat Evans and Peggy Mitchell. Macho male personalities such as Phil and Grant Mitchell have rubbed shoulders with bad boys including Den Watts and Dennis Rickman and handsome figures such as Simon Wicks and Jamie Mitchell. EastEnders has always featured a culturally diverse cast and never shied away from gritty storylines. For its 25th anniversary in February 2010, a live episode was broadcast where Archie Mitchell's killer was revealed. Ian Beale, played by Adam Woodyatt, is currently the only character to have been in the show from the first episode."
-                        },
-                        "media": [
-                            {
-                                "kind": "picture:series",
-                                "copyright": "©bbc",
-                                "expiryDate": "2027-02-01",
-                                "rendition": {
-                                    "default": {
-                                        "href": "http://tv.static.press.net/asset/webANXeastendersgen.jpg"
-                                    }
-                                }
-                            }
-                        ],
-                        "subject": [
-                            {
-                                "code": "asset:patv:8306",
-                                "profile": "asset"
-                            }
-                        ]
-                    }
-                ]
               }
       
   /asset/{assetId}:
@@ -798,46 +710,47 @@ paths:
           examples:
             application/json: |-
               {
-                "id": "61d40145-3e28-3a4a-8d53-650310505927",
-                "title": "2 Fast 2 Furious",
-                "type": "movie",
-                "productionYear": 2003,
-                "certification": {
-                    "bbfc": "12"
-                },
-                "tag": [
-                    {
-                        "id": "genre:detective",
-                        "name": "Detective"
-                    },
-                    {
-                        "id": "genre:thriller",
-                        "name": "Thriller"
-                    }
-                ],
-                "summary": {
-                    "short": "Thriller sequel, starring Paul Walker.",
-                    "medium": "A disgraced cop is given a chance to redeem himself by going undercover to bring a drug trafficker to justice. Thriller sequel, with Paul Walker, Tyrese Gibson and Eva Mendes.",
-                    "long": "A disgraced former cop is arrested by the FBI for illegal street racing, but his one-time colleagues offer him freedom in exchange for going on an undercover mission. Teaming up with an old racing friend and a customs official, he has to infiltrate and bring down a drug-trafficking operation. Thriller sequel, with Paul Walker reprising his role from The Fast and the Furious alongside Tyrese Gibson, Eva Mendes and Cole Hauser."
-                },
-                "media": [
-                    {
-                        "kind": "picture:movie",
-                        "copyright": "©Universal Pictures",
-                        "expiryDate": "2027-02-01",
-                        "rendition": {
-                            "default": {
-                                "href": "http://tv.static.press.net/asset/webANX2fast2furious.jpg"
-                            }
-                        }
-                    }
-                ],
-                "subject": [
-                    {
-                        "code": "asset:patv:552426",
-                        "profile": "asset"
-                    }
-                ]
+              	"id": "61d40145-3e28-3a4a-8d53-650310505927",
+              	"title": "2 Fast 2 Furious",
+              	"type": "movie",
+              	"productionYear": 2003,
+              	"certification": {
+              		"bbfc": "12"
+              	},
+              	"category": [{
+              			"code": "sport",
+              			"name": "Sport",
+              			"dvb": "1F03"
+              		},
+              		{
+              			"code": "sport:golf",
+              			"name": "Golf",
+              			"dvb": "1F05"
+              		}
+              	],
+              	"attribute": [
+              		"welsh"
+              	],
+              	"summary": {
+              		"short": "Thriller sequel, starring Paul Walker.",
+              		"medium": "A disgraced cop is given a chance to redeem himself by going undercover to bring a drug trafficker to justice. Thriller sequel, with Paul Walker, Tyrese Gibson and Eva Mendes.",
+              		"long": "A disgraced former cop is arrested by the FBI for illegal street racing, but his one-time colleagues offer him freedom in exchange for going on an undercover mission. Teaming up with an old racing friend and a customs official, he has to infiltrate and bring down a drug-trafficking operation. Thriller sequel, with Paul Walker reprising his role from The Fast and the Furious alongside Tyrese Gibson, Eva Mendes and Cole Hauser."
+              	},
+              	"related": [{
+              			"id": "61d40145-3e28-3a4a-8d53-650310505927",
+              			"title": "Game of Thrones",
+              			"type": "series"
+              		},
+              		{
+              			"id": "61d40145-3e28-3a4a-8d53-650310505927",
+              			"title": "Game of Thrones Season 2",
+              			"type": "season"
+              		}
+              	],
+              	"subject": [{
+              		"code": "programme:patv:552426",
+              		"profile": "asset"
+              	}]
               }
               
   /asset/{assetId}/contributor:
