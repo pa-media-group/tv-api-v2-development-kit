@@ -717,6 +717,9 @@ paths:
               	"certification": {
               		"bbfc": "12"
               	},
+              	"meta": {
+               		"url": "http://www.bbc.co.uk/tv/bbcnews/live"
+               	},
               	"category": [{
               			"code": "sport",
               			"name": "Sport",
