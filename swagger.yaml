@@ -442,7 +442,10 @@ paths:
       produces:
         - application/json
       parameters:
+        - $ref: '#/parameters/After'
+        - $ref: '#/parameters/UpdatedSince'
         - $ref: '#/parameters/Limit'
+        - $ref: '#/parameters/Aliases'
       responses:
         200:
           description: ''
@@ -544,6 +547,7 @@ parameters:
     required: false
     type: integer
     format: int32
+    default: 100
     description: >-
       Limit the the number of items to be returned per page. For example: 5.
 
@@ -563,7 +567,7 @@ parameters:
     in: query
     required: true
     type: string
-    description: The identifier for the selected platform.
+    description: The identifier for the selected platform. Multiple platforms can be passed to the API without a region Id. Passing multiple platforms without a region will not return epg numbers as these are linked to a platform and region.
   RegionId:
     name: regionId
     in: query
@@ -583,12 +587,26 @@ parameters:
     default: 2015-05-05
     type: string
     description: "Example Date"  
+  UpdatedSince:
+    name: updatedSince
+    in: query
+    required: false
+    default: '2015-05-05T00:00:00'
+    type: string
+    description: "Updated Since"  
   AssetId:  
     name: assetId
     in: query
     required: false
     type: string
-    description: A asset ID filter for the schedule collection. This can be a reference to any type of asset i.e. movie, season, series or episode.  
+    description: A asset ID filter for the schedule collection. This can be a reference to any type of asset i.e. movie, season, series or episode.
+  After:  
+    name: after
+    in: query
+    required: false
+    type: string
+    default: cfab77d4-5d98-42fc-b7d9-40271e420f72
+    description: The Id of the entity you would like to page after. 
   ContributorId:
     name: contributorId
     in: query
