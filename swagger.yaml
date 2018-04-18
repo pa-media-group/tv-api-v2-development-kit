@@ -454,6 +454,71 @@ paths:
           examples:
             application/json: |-
               {
+              	"limit": "2",
+              	"hasNext": true,
+              	"item": [{
+              			"id": "18dfef24-8b3c-5bd2-9971-1c4ae8b4bc91",
+              			"type": "episode",
+              			"certification": {},
+              			"meta": {},
+              			"category": [{
+              					"code": "music-ballet-dance",
+              					"name": "Music/Ballet/Dance"
+              				},
+              				{
+              					"code": "music-ballet-dance:general",
+              					"name": "General",
+              					"dvb": "6000"
+              				}
+              			],
+              			"attribute": [],
+              			"summary": {
+              				"short": "Music and chat",
+              				"medium": "Music and chat. Including at 4.30 Pause for Thought",
+              				"long": "Music and chat, featuring guests and news. Including at 4.30 Pause for Thought"
+              			},
+              			"related": [{
+              				"type": "series",
+              				"id": "979d1804-26c3-5ea5-aea7-c2650b3daaaa",
+              				"title": "Richard Allinson"
+              			}],
+              			"subject": [{
+              				"code": "programme:patv:1269818",
+              				"profile": "asset"
+              			}]
+              		},
+              		{
+              			"id": "bce802e4-089d-5737-9c8a-3edd30a0775e",
+              			"type": "episode",
+              			"certification": {},
+              			"meta": {},
+              			"category": [{
+              					"code": "music-ballet-dance",
+              					"name": "Music/Ballet/Dance"
+              				},
+              				{
+              					"code": "music-ballet-dance:general",
+              					"name": "General",
+              					"dvb": "6000"
+              				}
+              			],
+              			"attribute": [],
+              			"summary": {
+              				"short": "Music and chat",
+              				"medium": "Music and chat. Including at 4.30 Pause for Thought",
+              				"long": "Music and chat, featuring guests and news. Including at 4.30 Pause for Thought"
+              			},
+              			"related": [{
+              				"type": "series",
+              				"id": "979d1804-26c3-5ea5-aea7-c2650b3daaaa",
+              				"title": "Richard Allinson"
+              			}],
+              			"subject": [{
+              				"code": "programme:patv:1269940",
+              				"profile": "asset"
+              			}]
+              		}
+              	]
               }
       
   /asset/{assetId}:
@@ -471,6 +536,7 @@ paths:
         - $ref: '#/parameters/AssetId'
           in: path
           required: true
+        - $ref: '#/parameters/Aliases'
       responses:
         200:
           description: ''
@@ -483,12 +549,13 @@ paths:
               	"title": "2 Fast 2 Furious",
               	"type": "movie",
               	"productionYear": 2003,
+              	"number": 1,
               	"certification": {
               		"bbfc": "12"
               	},
               	"meta": {
-               		"url": "http://www.bbc.co.uk/tv/bbcnews/live"
-               	},
+              		"url": "http://www.bbc.co.uk/tv/bbcnews/live"
+              	},
               	"category": [{
               			"code": "sport",
               			"name": "Sport",
@@ -511,12 +578,21 @@ paths:
               	"related": [{
               			"id": "61d40145-3e28-3a4a-8d53-650310505927",
               			"title": "Game of Thrones",
-              			"type": "series"
+              			"type": "series",
+              			"subject": [{
+              				"code": "series:patv:2312",
+              				"profile": "asset"
+              			}]
               		},
               		{
               			"id": "61d40145-3e28-3a4a-8d53-650310505927",
               			"title": "Game of Thrones Season 2",
-              			"type": "season"
+              			"type": "season",
+              			"number": 2,
+              			"subject": [{
+              				"code": "season:patv:42332",
+              				"profile": "asset"
+              			}]
               		}
               	],
               	"subject": [{
@@ -567,12 +643,14 @@ parameters:
     in: query
     required: true
     type: string
+    default: d3b26caa-8c7d-5f97-9eff-40fcf1a6f8d3
     description: The identifier for the selected platform. Multiple platforms can be passed to the API without a region Id. Passing multiple platforms without a region will not return epg numbers as these are linked to a platform and region.
   RegionId:
     name: regionId
     in: query
     required: true
     type: string
+    default: afa4f624-da9b-54ce-b514-570345dbbdce
     description: The platform region ID for the channel selection.
   ChannelId:  
     name: channelId
@@ -644,4 +722,5 @@ parameters:
     in: query
     required: false
     type: boolean
+    default: true
     description: Flag to display Legacy and Provider Ids.
