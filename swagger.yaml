@@ -4,7 +4,7 @@ info:
   version: '2.0'
   title: TV API
   description: Welcome to the API Reference Docs page for the Press Association TV API (v2).
-host: tv.api.press.net
+host: tv.api.pressassociation.io
 basePath: /v2
 securityDefinitions:
   apikey:
