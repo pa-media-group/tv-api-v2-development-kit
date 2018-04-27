@@ -485,6 +485,10 @@ paths:
               			"subject": [{
               				"code": "programme:patv:1269818",
               				"profile": "asset"
+              			}],
+              			"link": [{
+              				"rel": "contributor",
+              				"href": "http://tv.api.pressassociation.io/v2/asset/18dfef24-8b3c-5bd2-9971-1c4ae8b4bc91/contributor"
               			}]
               		},
               		{
@@ -516,6 +520,10 @@ paths:
               			"subject": [{
               				"code": "programme:patv:1269940",
               				"profile": "asset"
+              			}],
+              			"link": [{
+              				"rel": "contributor",
+              				"href": "http://tv.api.pressassociation.io/v2/asset/bce802e4-089d-5737-9c8a-3edd30a0775e/contributor"
               			}]
               		}
               	]
@@ -598,8 +606,85 @@ paths:
               	"subject": [{
               		"code": "programme:patv:552426",
               		"profile": "asset"
+              	}],
+              	"link": [{
+              		"rel": "contributor",
+              		"href": "http://tv.api.pressassociation.io/v2/asset/61d40145-3e28-3a4a-8d53-650310505927/contributor"
               	}]
               }
+
+  /asset/{assetId}/contributor:
+    get:
+      description: Return the contributors of the selected asset.
+      summary: Asset Contributors
+      tags:
+        - Asset
+      operationId: getAssetContributors
+      security:
+        - apikey: []
+      produces:
+        - application/json
+      parameters:
+        - $ref: '#/parameters/AssetId'
+          in: path
+          required: true
+        - $ref: '#/parameters/Aliases'
+      responses:
+        200:
+          description: ''
+          schema:
+            type: object
+          examples:
+            application/json: |-
+              {
+              	"hasNext": false,
+              	"total": 2,
+              	"item": [{
+              			"id": "c6f23fc1-850c-5da9-b441-c2f8694ecb9a",
+              			"name": "Jimmy Carr",
+              			"dob": "1972-09-15",
+              			"from": "Slough",
+              			"gender": "male",
+              			"meta": {},
+              			"character": [],
+              			"role": [
+              				"host"
+              			],
+                		"subject": [{
+                      "code": "person:patv:92332",
+                      "profile": "contributor"
+                    }]
+              		},
+              		{
+              			"id": "211a2058-1bd0-54b6-9017-e7b6834a0da4",
+              			"name": "Michael Voase",
+              			"dob": "1993-04-14",
+              			"from": "Scarborough, Yorkshire",
+              			"gender": "male",
+              			"meta": {},
+              			"character": [{
+              					"type": "actor",
+              					"name": "Himself"
+              				},
+              				{
+              					"type": "actor",
+              					"name": "Big Mike"
+              				},
+              				{
+              					"type": "actor",
+              					"name": "Magic Mike"
+              				}
+              			],
+              			"role": [
+              				"actor", "director", "producer"
+              			],
+                    "subject": [{
+                      "code": "person:patv:332114",
+                      "profile": "contributor"
+                    }]
+              		}
+              	]
+              }       
               
 parameters:
   Accept:
