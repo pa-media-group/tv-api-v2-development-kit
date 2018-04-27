@@ -686,6 +686,120 @@ paths:
               	]
               }       
               
+  /contributor:
+    get:
+      description: Return a collection of Contributors.
+      summary: Contributor Collection
+      tags:
+        - Contributor
+      operationId: listContributor
+      security:
+        - apikey: []
+      produces:
+        - application/json
+      parameters:
+        - $ref: '#/parameters/After'
+        - $ref: '#/parameters/UpdatedSince'
+        - $ref: '#/parameters/Limit'
+        - $ref: '#/parameters/Aliases'
+      responses:
+        200:
+          description: ''
+          schema:
+            type: object
+          examples:
+            application/json: |-
+              {
+              	"hasNext": true,
+              	"limit": 10,
+              	"item": [{
+              			"id": "f6443d39-1092-56de-aaf3-c89b59e47e57",
+              			"name": "Rita Cortese",
+              			"meta": {}
+              		},
+              		{
+              			"id": "b8362ee6-ad69-5d0f-b019-b9c71c4d5462",
+              			"name": "Oliver Dumont",
+              			"meta": {}
+              		},
+              		{
+              			"id": "3ffe6ef4-2425-5db5-8ff1-49384a872f55",
+              			"name": "Ed Perkins",
+              			"meta": {}
+              		},
+              		{
+              			"id": "c857348e-5179-545c-b815-d10efc34300b",
+              			"name": "Colm Mac Con Iomaire",
+              			"meta": {}
+              		},
+              		{
+              			"id": "78b2d373-3b18-59bf-821f-460eeb03382b",
+              			"name": "Adrian Moore",
+              			"meta": {}
+              		},
+              		{
+              			"id": "cc0d8d95-6764-52c5-a33e-58464236b771",
+              			"name": "Jim Ashley",
+              			"meta": {}
+              		},
+              		{
+              			"id": "9474afc4-9b7b-5071-a0ce-7b94dbc67211",
+              			"name": "Sean Farrington",
+              			"meta": {}
+              		},
+              		{
+              			"id": "1ab85e0b-6c3f-5aa1-8033-53386766f535",
+              			"name": "Kieran Hannigan",
+              			"meta": {}
+              		},
+              		{
+              			"id": "b01be393-e728-523d-8d9a-7e0a00d99ae5",
+              			"name": "Kai Alexander",
+              			"meta": {}
+              		},
+              		{
+              			"id": "2ff8110e-33aa-5a3e-94ad-f7b2e2d9972c",
+              			"name": "Edward Holcroft",
+              			"dob": "1987-06-23",
+              			"from": "London",
+              			"gender": "male",
+              			"meta": {}
+              		}
+              	]
+              }            
+
+  /contributor/{contributorId}:
+    get:
+      description: Return the content of the selected contributor.
+      summary: Contributor Detail
+      tags:
+        - Contributor
+      operationId: getContributor
+      security:
+        - apikey: []
+      produces:
+        - application/json
+      parameters:
+        - $ref: '#/parameters/ContributorId'
+          in: path
+          required: true
+        - $ref: '#/parameters/Aliases'
+      responses:
+        200:
+          description: ''
+          schema:
+            type: object
+          examples:
+            application/json: |-
+              {
+              	"id": "2ff8110e-33aa-5a3e-94ad-f7b2e2d9972c",
+              	"name": "Edward Holcroft",
+              	"dob": "1987-06-23",
+              	"from": "London",
+              	"gender": "male",
+              	"meta": {}
+              }
+              
 parameters:
   Accept:
     name: Accept
