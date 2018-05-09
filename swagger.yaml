@@ -286,7 +286,17 @@ paths:
   
   /channel:
     get:
-      description: Return a collection of channels.
+      description: |-
+        If you are interested in a list of channels that have had there schedule updated you can filter by the following query params.
+         - scheduleStart
+         - scheduleEnd
+         - updatedSince
+         
+        adding these query params will filter the channel collection to only return channels that have been updated within the given range, updatedSince stores the state of your previous call.
+        
+        Example Usage: Every 10 minutes get me the channels that have updated schedules for the next 2 weeks.
+        
+        /channel?platform={uuid}&scheduleStart={today}&scheduleEnd={today + 2 weeks}&updatedSince={10 minutes ago}
       summary: Channel Collection
       tags:
         - Channel
@@ -301,6 +311,9 @@ paths:
         - $ref: '#/parameters/Aliases'
         - $ref: '#/parameters/Date'
           description: "Date of the Channel State to select, this will display channel names and attributes in the future or past."
+        - $ref: '#/parameters/ScheduleStart'
+        - $ref: '#/parameters/ScheduleEnd'
+        - $ref: '#/parameters/UpdatedSince'
       responses:
         200:
           description: ''
@@ -965,6 +978,22 @@ parameters:
     required: true
     type: string
     description: The identifier for the selected channel.
+  ScheduleStart:  
+    name: scheduleStart
+    in: query
+    required: false
+    type: string
+    pattern: date-time
+    default: '2015-05-05T00:00:00'
+    description: The Start Date for the schedule.
+  ScheduleEnd:  
+    name: scheudleEnd
+    in: query
+    required: false
+    type: string
+    default: '2015-05-06T00:00:00'
+    pattern: date-time
+    description: The End Date for the schedule.
   Date:
     name: start
     in: query
