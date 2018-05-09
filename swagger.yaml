@@ -799,7 +799,115 @@ paths:
               	"gender": "male",
               	"meta": {}
               }
-              
+   
+  /schedule:
+    get:
+      description: |- 
+        The schedule endpoint produces a linear TV schedule for a given channel and date range.
+        
+         - The date range supplied must be no larger than 21 days.
+         - If no end data is passed the API will default to start date + 24 hours.
+         
+         
+      summary: Schedule Collection
+      tags:
+        - Schedule
+      operationId: listSchedule
+      security:
+        - apikey: []
+      produces:
+        - application/json
+      parameters:
+        - $ref: '#/parameters/ChannelId'
+        - $ref: '#/parameters/Start'
+        - $ref: '#/parameters/End'
+        - $ref: '#/parameters/Aliases'
+      responses:
+        200:
+          description: ''
+          schema:
+            type: object
+          examples:
+            application/json: |-
+              {
+                "limit": 100,
+                "offset": 0,
+                "hasNext": false,
+                "hasPrevious": false,
+                "items": [{
+                  "id": "3c864874-c02c-3c90-8cbc-7ef34f9accd7",
+                  "dateTime": "2018-05-09T05:00:00+0000",
+                  "title": "Breakfast",
+                  "duration": 195,
+                  "attribute": ["stereo", "subtitles", "surround", "widescreen", "audioDescriptive", "interactive"],
+                  "summary": {
+                    "short": "Thriller sequel, starring Paul Walker.",
+                    "medium": "A disgraced cop is given a chance to redeem himself by going undercover to bring a drug trafficker to justice. Thriller sequel, with Paul Walker, Tyrese Gibson and Eva Mendes.",
+                    "long": "A disgraced former cop is arrested by the FBI for illegal street racing, but his one-time colleagues offer him freedom in exchange for going on an undercover mission. Teaming up with an old racing friend and a customs official, he has to infiltrate and bring down a drug-trafficking operation. Thriller sequel, with Paul Walker reprising his role from The Fast and the Furious alongside Tyrese Gibson, Eva Mendes and Cole Hauser."
+                  },
+                  "asset": {
+                    "id": "61d40145-3e28-3a4a-8d53-650310505927",
+                    "title": "2 Fast 2 Furious",
+                    "type": "movie",
+                    "productionYear": 2003,
+                    "number": 1,
+                    "certification": {
+                      "bbfc": "12"
+                    },
+                    "meta": {
+                      "url": "http://www.bbc.co.uk/tv/bbcnews/live"
+                    },
+                    "category": [{
+                        "code": "sport",
+                        "name": "Sport",
+                        "dvb": "1F03"
+                      },
+                      {
+                        "code": "sport:golf",
+                        "name": "Golf",
+                        "dvb": "1F05"
+                      }
+                    ],
+                    "attribute": [
+                      "welsh"
+                    ],
+                    "summary": {
+                      "short": "Thriller sequel, starring Paul Walker.",
+                      "medium": "A disgraced cop is given a chance to redeem himself by going undercover to bring a drug trafficker to justice. Thriller sequel, with Paul Walker, Tyrese Gibson and Eva Mendes.",
+                      "long": "A disgraced former cop is arrested by the FBI for illegal street racing, but his one-time colleagues offer him freedom in exchange for going on an undercover mission. Teaming up with an old racing friend and a customs official, he has to infiltrate and bring down a drug-trafficking operation. Thriller sequel, with Paul Walker reprising his role from The Fast and the Furious alongside Tyrese Gibson, Eva Mendes and Cole Hauser."
+                    },
+                    "related": [{
+                        "id": "61d40145-3e28-3a4a-8d53-650310505927",
+                        "title": "Game of Thrones",
+                        "type": "series",
+                        "subject": [{
+                          "code": "series:patv:2312",
+                          "profile": "asset"
+                        }]
+                      },
+                      {
+                        "id": "61d40145-3e28-3a4a-8d53-650310505927",
+                        "title": "Game of Thrones Season 2",
+                        "type": "season",
+                        "number": 2,
+                        "subject": [{
+                          "code": "season:patv:42332",
+                          "profile": "asset"
+                        }]
+                      }
+                    ],
+                    "subject": [{
+                      "code": "programme:patv:552426",
+                      "profile": "asset"
+                    }],
+                    "link": [{
+                      "rel": "contributor",
+                      "href": "http://tv.api.pressassociation.io/v2/asset/61d40145-3e28-3a4a-8d53-650310505927/contributor"
+                    }]
+                  }
+                }]
+              }           
+
 parameters:
   Accept:
     name: Accept
@@ -862,6 +970,7 @@ parameters:
     in: query
     required: false
     default: 2015-05-05
+    pattern: date
     type: string
     description: "Example Date"  
   UpdatedSince:
@@ -869,6 +978,7 @@ parameters:
     in: query
     required: false
     default: '2015-05-05T00:00:00'
+    pattern: date-time
     type: string
     description: "Updated Since"  
   AssetId:  
@@ -884,6 +994,22 @@ parameters:
     type: string
     default: cfab77d4-5d98-42fc-b7d9-40271e420f72
     description: The Id of the entity you would like to page after. 
+  Start:  
+    name: start
+    in: query
+    required: true
+    type: string
+    pattern: date-time
+    default: '2015-05-05T00:00:00'
+    description: The Start Date for the schedule.
+  End:  
+    name: end
+    in: query
+    required: false
+    type: string
+    default: '2015-05-06T00:00:00'
+    pattern: date-time
+    description: The End Date for the schedule.
   ContributorId:
     name: contributorId
     in: query
