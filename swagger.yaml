@@ -313,7 +313,7 @@ paths:
           description: "Date of the Channel State to select, this will display channel names and attributes in the future or past."
         - $ref: '#/parameters/ScheduleStart'
         - $ref: '#/parameters/ScheduleEnd'
-        - $ref: '#/parameters/UpdatedSince'
+        - $ref: '#/parameters/ScheduleUpdatedSince'
       responses:
         200:
           description: ''
@@ -843,83 +843,104 @@ paths:
           examples:
             application/json: |-
               {
-                "limit": 100,
-                "offset": 0,
                 "hasNext": false,
                 "hasPrevious": false,
-                "items": [{
-                  "id": "3c864874-c02c-3c90-8cbc-7ef34f9accd7",
-                  "dateTime": "2018-05-09T05:00:00+0000",
-                  "title": "Breakfast",
-                  "duration": 195,
-                  "attribute": ["stereo", "subtitles", "surround", "widescreen", "audioDescriptive", "interactive"],
-                  "summary": {
-                    "short": "Thriller sequel, starring Paul Walker.",
-                    "medium": "A disgraced cop is given a chance to redeem himself by going undercover to bring a drug trafficker to justice. Thriller sequel, with Paul Walker, Tyrese Gibson and Eva Mendes.",
-                    "long": "A disgraced former cop is arrested by the FBI for illegal street racing, but his one-time colleagues offer him freedom in exchange for going on an undercover mission. Teaming up with an old racing friend and a customs official, he has to infiltrate and bring down a drug-trafficking operation. Thriller sequel, with Paul Walker reprising his role from The Fast and the Furious alongside Tyrese Gibson, Eva Mendes and Cole Hauser."
-                  },
-                  "asset": {
-                    "id": "61d40145-3e28-3a4a-8d53-650310505927",
-                    "title": "2 Fast 2 Furious",
-                    "type": "movie",
-                    "productionYear": 2003,
-                    "number": 1,
-                    "certification": {
-                      "bbfc": "12"
-                    },
-                    "meta": {
-                      "url": "http://www.bbc.co.uk/tv/bbcnews/live"
-                    },
-                    "category": [{
-                        "code": "sport",
-                        "name": "Sport",
-                        "dvb": "1F03"
-                      },
-                      {
-                        "code": "sport:golf",
-                        "name": "Golf",
-                        "dvb": "1F05"
-                      }
-                    ],
+                "items": [
+                  {
+                    "id": "3c864874-c02c-3c90-8cbc-7ef34f9accd7",
+                    "dateTime": "2018-05-09T05:00:00+0000",
+                    "title": "Breakfast",
+                    "duration": 195,
                     "attribute": [
-                      "welsh"
+                      "stereo",
+                      "subtitles",
+                      "surround",
+                      "widescreen",
+                      "audio-descriptive",
+                      "interactive"
                     ],
+                    "certification": {
+                        "bbfc": "12"
+                    },
+                    "meta": {},
                     "summary": {
                       "short": "Thriller sequel, starring Paul Walker.",
                       "medium": "A disgraced cop is given a chance to redeem himself by going undercover to bring a drug trafficker to justice. Thriller sequel, with Paul Walker, Tyrese Gibson and Eva Mendes.",
                       "long": "A disgraced former cop is arrested by the FBI for illegal street racing, but his one-time colleagues offer him freedom in exchange for going on an undercover mission. Teaming up with an old racing friend and a customs official, he has to infiltrate and bring down a drug-trafficking operation. Thriller sequel, with Paul Walker reprising his role from The Fast and the Furious alongside Tyrese Gibson, Eva Mendes and Cole Hauser."
                     },
-                    "related": [{
-                        "id": "61d40145-3e28-3a4a-8d53-650310505927",
-                        "title": "Game of Thrones",
-                        "type": "series",
-                        "subject": [{
-                          "code": "series:patv:2312",
-                          "profile": "asset"
-                        }]
+                    "asset": {
+                      "id": "61d40145-3e28-3a4a-8d53-650310505927",
+                      "title": "2 Fast 2 Furious",
+                      "type": "movie",
+                      "productionYear": 2003,
+                      "number": 1,
+                      "certification": {
+                        "bbfc": "12"
                       },
-                      {
-                        "id": "61d40145-3e28-3a4a-8d53-650310505927",
-                        "title": "Game of Thrones Season 2",
-                        "type": "season",
-                        "number": 2,
-                        "subject": [{
-                          "code": "season:patv:42332",
+                      "meta": {
+                        "url": "http://www.bbc.co.uk/tv/bbcnews/live"
+                      },
+                      "category": [
+                        {
+                          "code": "sport",
+                          "name": "Sport",
+                          "dvb": "1F03"
+                        },
+                        {
+                          "code": "sport:golf",
+                          "name": "Golf",
+                          "dvb": "1F05"
+                        }
+                      ],
+                      "attribute": [
+                        "welsh"
+                      ],
+                      "summary": {
+                        "short": "Thriller sequel, starring Paul Walker.",
+                        "medium": "A disgraced cop is given a chance to redeem himself by going undercover to bring a drug trafficker to justice. Thriller sequel, with Paul Walker, Tyrese Gibson and Eva Mendes.",
+                        "long": "A disgraced former cop is arrested by the FBI for illegal street racing, but his one-time colleagues offer him freedom in exchange for going on an undercover mission. Teaming up with an old racing friend and a customs official, he has to infiltrate and bring down a drug-trafficking operation. Thriller sequel, with Paul Walker reprising his role from The Fast and the Furious alongside Tyrese Gibson, Eva Mendes and Cole Hauser."
+                      },
+                      "related": [
+                        {
+                          "id": "61d40145-3e28-3a4a-8d53-650310505927",
+                          "title": "Game of Thrones",
+                          "type": "series",
+                          "subject": [
+                            {
+                              "code": "series:patv:2312",
+                              "profile": "asset"
+                            }
+                          ]
+                        },
+                        {
+                          "id": "61d40145-3e28-3a4a-8d53-650310505927",
+                          "title": "Game of Thrones Season 2",
+                          "type": "season",
+                          "number": 2,
+                          "subject": [
+                            {
+                              "code": "season:patv:42332",
+                              "profile": "asset"
+                            }
+                          ]
+                        }
+                      ],
+                      "subject": [
+                        {
+                          "code": "programme:patv:552426",
                           "profile": "asset"
-                        }]
-                      }
-                    ],
-                    "subject": [{
-                      "code": "programme:patv:552426",
-                      "profile": "asset"
-                    }],
-                    "link": [{
-                      "rel": "contributor",
-                      "href": "http://tv.api.pressassociation.io/v2/asset/61d40145-3e28-3a4a-8d53-650310505927/contributor"
-                    }]
+                        }
+                      ],
+                      "link": [
+                        {
+                          "rel": "contributor",
+                          "href": "http://tv.api.pressassociation.io/v2/asset/61d40145-3e28-3a4a-8d53-650310505927/contributor"
+                        }
+                      ]
+                    }
                   }
-                }]
-              }           
+                ]
+              }         
 
 parameters:
   Accept:
@@ -1010,6 +1031,14 @@ parameters:
     pattern: date-time
     type: string
     description: "Updated Since"  
+  ScheduleUpdatedSince:
+    name: scheduleUpdatedSince
+    in: query
+    required: false
+    default: '2015-05-05T00:00:00'
+    pattern: date-time
+    type: string
+    description: "Schedule Updated Since"  
   AssetId:  
     name: assetId
     in: query
