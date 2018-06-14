@@ -993,6 +993,7 @@ paths:
           in: path
           required: true
         - $ref: '#/parameters/Date'
+          required: true
       responses:
         200:
           description: ''
