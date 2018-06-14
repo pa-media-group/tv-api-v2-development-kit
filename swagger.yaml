@@ -942,6 +942,115 @@ paths:
                 ]
               }         
 
+  /feature:
+    get:
+      description: Return a collection of Feature.
+      summary: Feature Collection
+      tags:
+        - Feature
+      operationId: listFeatures
+      security:
+        - apikey: []
+      produces:
+        - application/json
+      responses:
+        200:
+          description: ''
+          schema:
+            type: object
+          examples:
+            application/json: |-
+              {
+                "hasNext": false,
+                "total": 2,
+                "item": [
+                  {
+                    "id": "107c4cbe-7b56-44e0-bc59-367e7349fd76",
+                    "name": "netflix-monthly",
+                    "type": "monthly"
+                  },
+                  {
+                    "id": "107c4cbe-7b56-44e0-bc59-367e7349fd77",
+                    "name": "highlights-monthly",
+                    "type": "monthly"
+                  }
+                ]
+              }           
+
+  /feature/{featureId}:
+    get:
+      description: Return the content of the selected feature.
+      summary: Feature Detail
+      tags:
+        - Feature
+      operationId: getFeature
+      security:
+        - apikey: []
+      produces:
+        - application/json
+      parameters:
+        - $ref: '#/parameters/FeatureId'
+          in: path
+          required: true
+        - $ref: '#/parameters/Date'
+      responses:
+        200:
+          description: ''
+          schema:
+            type: object
+          examples:
+            application/json: |-
+              {
+              	"id": "8737b923-db4b-45ec-b3a0-dc41fcd05496",
+              	"name": "Netflix Monthly",
+              	"type": "monthly",
+              	"collection": [{
+              		"start": "2018-01-01",
+              		"end": "2018-01-31",
+              		"item": [{
+              			"available": "2018-01-01T07:00:00",
+              			"expires": "2018-03-01T07:00:00",
+              			"attribute": ["netflix", "sky-store"],
+              			"summary": {
+              				"short": "Horrible episode, loads of people died"
+              			},
+              			"channel": {
+              				"id": "5868c92f-eae8-5333-b044-615dc8a307a1",
+              				"title": "BBC One Cambridgeshire"
+              			}
+              			"asset": {
+              				"id": "88934e86-c6c9-3403-b4c2-ab4c427e2325",
+              				"title": "The Fast and the Furious: Tokyo Drift",
+              				"type": "movie",
+              				"productionYear": 2006,
+              				"certification": {
+              					"bbfc": "12"
+              				},
+              				"meta": {},
+              				"category": [{
+              					"id": "genre:adventure",
+              					"name": "Adventure",
+              					"dvb": "1F0F"
+              				}],
+              				"attribute": [{
+              					"name": "Violent Scenes",
+              					"namespace": "violent-scenes"
+              				}],
+              				"summary": {
+              					"short": "Motor-racing adventure, starring Lucas Black.",
+              					"medium": "An American teenager living in Japan gets involved in illegal street racing, but ends up owing money to gangsters. Action adventure, starring Lucas Black and Nathalie Kelley.",
+              					"long": "An American teenager is sent to live with his father in Tokyo after a brush with the law, but soon becomes involved in illegal street racing. When he ends up owing money to gangsters after losing a race against a driver with Yakuza connections, he has to learn to master the Japanese style of driving to win and pay back his debts. Action adventure, starring Lucas Black, Nathalie Kelley and Bow Wow."
+              				},
+              				"subject": [{
+              					"code": "movie:patv:916633",
+              					"profile": "asset"
+              				}]
+              			}
+              		}]
+              	}]
+              }
+
+
 parameters:
   Accept:
     name: Accept
