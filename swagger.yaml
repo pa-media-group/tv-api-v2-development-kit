@@ -991,7 +991,7 @@ paths:
       parameters: 
         - name: type
           in: query
-          required: false
+          required: true
           type: string
           default: netflix-monthly
           description: The namespace of the feature type.
@@ -1057,7 +1057,7 @@ paths:
                 "start": "2018-01-01",
                 "end": "2018-01-31",
                 "type": "netflix-monthly",
-                "collection": [
+                "selection": [
                   {
                     "available": "2018-01-01T07:00:00",
                     "expires": "2018-03-01T07:00:00",
