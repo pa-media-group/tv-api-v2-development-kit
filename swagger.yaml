@@ -991,7 +991,7 @@ paths:
       parameters: 
         - name: type
           in: query
-          required: true
+          required: false
           type: string
           default: netflix-monthly
           description: The namespace of the feature type.
