@@ -1019,13 +1019,15 @@ paths:
                     "id": "8b44f262-d724-4539-9d62-5722de3668fd",
                     "start": "2018-01-01",
                     "end": "2018-01-31",
-                    "type": "netflix-monthly"
+                    "type": "netflix-monthly",
+                    "selection": []
                   },
                   {
                     "id": "bccfdff1-ae33-4ae8-b6c6-e3d0a08df45b",
                     "start": "2018-02-01",
                     "end": "2018-02-31",
-                    "type": "netflix-monthly"
+                    "type": "netflix-monthly",
+                    "selection": []
                   }
                 ]
               }           
