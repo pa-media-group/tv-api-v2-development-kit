@@ -1012,83 +1012,54 @@ paths:
           examples:
             application/json: |-
               {
-                "hasNext": false,
-                "total": 2,
-                "item": [
-                  {
-                    "id": "8b44f262-d724-4539-9d62-5722de3668fd",
-                    "start": "2018-01-01",
-                    "end": "2018-01-31",
-                    "type": "netflix-monthly",
-                    "selection": [
-                     {
-                        "id": "8b44f262-d724-4539-9d62-5722de3668fd",
-                        "start": "2018-01-01",
-                        "end": "2018-01-31",
-                        "type": "netflix-monthly",
-                        "selection": [
-                          {
-                            "available": "2018-01-01T07:00:00",
-                            "expires": "2018-03-01T07:00:00",
-                            "attribute": [
-                              "netflix",
-                              "sky-store"
-                            ],
-                            "summary": {
-                              "short": "Horrible episode, loads of people died"
-                            },
-                            "channel": {
-                              "id": "5868c92f-eae8-5333-b044-615dc8a307a1",
-                              "title": "BBC One Cambridgeshire"
-                            },
-                            "asset": {
-                              "id": "88934e86-c6c9-3403-b4c2-ab4c427e2325",
-                              "title": "The Fast and the Furious: Tokyo Drift",
-                              "type": "movie",
-                              "productionYear": 2006,
-                              "certification": {
-                                "bbfc": "12"
-                              },
-                              "meta": {},
-                              "category": [
-                                {
-                                  "id": "genre:adventure",
-                                  "name": "Adventure",
-                                  "dvb": "1F0F"
-                                }
-                              ],
-                              "attribute": [
-                                {
-                                  "name": "Violent Scenes",
-                                  "namespace": "violent-scenes"
-                                }
-                              ],
-                              "summary": {
-                                "short": "Motor-racing adventure, starring Lucas Black.",
-                                "medium": "An American teenager living in Japan gets involved in illegal street racing, but ends up owing money to gangsters. Action adventure, starring Lucas Black and Nathalie Kelley.",
-                                "long": "An American teenager is sent to live with his father in Tokyo after a brush with the law, but soon becomes involved in illegal street racing. When he ends up owing money to gangsters after losing a race against a driver with Yakuza connections, he has to learn to master the Japanese style of driving to win and pay back his debts. Action adventure, starring Lucas Black, Nathalie Kelley and Bow Wow."
-                              },
-                              "subject": [
-                                {
-                                  "code": "movie:patv:916633",
-                                  "profile": "asset"
-                                }
-                              ]
-                            }
-                          }
-                        ]
-                      }
-                    ]
-                  },
-                  {
-                    "id": "bccfdff1-ae33-4ae8-b6c6-e3d0a08df45b",
-                    "start": "2018-02-01",
-                    "end": "2018-02-31",
-                    "type": "netflix-monthly",
-                    "selection": []
-                  }
-                ]
-              }           
+              	"hasNext": false,
+              	"total": 1,
+              	"item": [{
+              		"id": "668d8a9c-0b63-5f9f-8fbe-26d656b01c75",
+              		"start": "2018-02-01T00:00:00.000Z",
+              		"end": "2018-02-28T23:59:59.999Z",
+              		"type": "monthly",
+              		"selection": [{
+              			"asset": {
+              				"id": "25460a3b-06c6-5b47-8fd8-de6faf26ecb8",
+              				"type": "one-off",
+              				"title": "Fantastic Beasts and Where to Find Them: Special",
+              				"certification": {},
+              				"meta": {},
+              				"category": [{
+              						"code": "arts-culture",
+              						"name": "Arts/Culture (without music)"
+              					},
+              					{
+              						"code": "arts-culture:film-cinema",
+              						"name": "Film/Cinema",
+              						"dvb": "7600"
+              					}
+              				],
+              				"attribute": [],
+              				"summary": {
+              					"medium": "A behind-the-scenes look at the latest trip into JK Rowling's wizarding world, including interviews with stars Eddie Redmayne and Colin Farrell",
+              					"short": "A behind-the-scenes look at the latest trip into JK Rowling's wizarding world"
+              				},
+              				"related": [],
+              				"link": [],
+              				"subject": [{
+              					"code": "programme:patv:2524488",
+              					"profile": "asset"
+              				}]
+              			},
+              			"available": "2018-02-01T13:55:00.000Z",
+              			"attribute": [
+              				"now-tv"
+              			],
+              			"summary": {},
+              			"channel": {
+              				"title": "Sky Cinema Premiere",
+              				"id": "3a84612c-318d-56a1-8a39-bcff1bd6c2e8"
+              			}
+              		}]
+              	}]
+              }       
 
   /feature/{featureId}:
     get:
@@ -1113,62 +1084,50 @@ paths:
           examples:
             application/json: |-
               {
-                "id": "8b44f262-d724-4539-9d62-5722de3668fd",
-                "start": "2018-01-01",
-                "end": "2018-01-31",
-                "type": "netflix-monthly",
-                "selection": [
-                  {
-                    "available": "2018-01-01T07:00:00",
-                    "expires": "2018-03-01T07:00:00",
-                    "attribute": [
-                      "netflix",
-                      "sky-store"
-                    ],
-                    "summary": {
-                      "short": "Horrible episode, loads of people died"
-                    },
-                    "channel": {
-                      "id": "5868c92f-eae8-5333-b044-615dc8a307a1",
-                      "title": "BBC One Cambridgeshire"
-                    },
-                    "asset": {
-                      "id": "88934e86-c6c9-3403-b4c2-ab4c427e2325",
-                      "title": "The Fast and the Furious: Tokyo Drift",
-                      "type": "movie",
-                      "productionYear": 2006,
-                      "certification": {
-                        "bbfc": "12"
-                      },
-                      "meta": {},
-                      "category": [
-                        {
-                          "id": "genre:adventure",
-                          "name": "Adventure",
-                          "dvb": "1F0F"
-                        }
-                      ],
-                      "attribute": [
-                        {
-                          "name": "Violent Scenes",
-                          "namespace": "violent-scenes"
-                        }
-                      ],
-                      "summary": {
-                        "short": "Motor-racing adventure, starring Lucas Black.",
-                        "medium": "An American teenager living in Japan gets involved in illegal street racing, but ends up owing money to gangsters. Action adventure, starring Lucas Black and Nathalie Kelley.",
-                        "long": "An American teenager is sent to live with his father in Tokyo after a brush with the law, but soon becomes involved in illegal street racing. When he ends up owing money to gangsters after losing a race against a driver with Yakuza connections, he has to learn to master the Japanese style of driving to win and pay back his debts. Action adventure, starring Lucas Black, Nathalie Kelley and Bow Wow."
-                      },
-                      "subject": [
-                        {
-                          "code": "movie:patv:916633",
-                          "profile": "asset"
-                        }
-                      ]
-                    }
-                  }
-                ]
-              }
+               	"id": "668d8a9c-0b63-5f9f-8fbe-26d656b01c75",
+               	"start": "2018-02-01T00:00:00.000Z",
+               	"end": "2018-02-28T23:59:59.999Z",
+               	"type": "monthly",
+               	"selection": [{
+               		"asset": {
+               			"id": "25460a3b-06c6-5b47-8fd8-de6faf26ecb8",
+               			"type": "one-off",
+               			"title": "Fantastic Beasts and Where to Find Them: Special",
+               			"certification": {},
+               			"meta": {},
+               			"category": [{
+               					"code": "arts-culture",
+               					"name": "Arts/Culture (without music)"
+               				},
+               				{
+               					"code": "arts-culture:film-cinema",
+               					"name": "Film/Cinema",
+               					"dvb": "7600"
+               				}
+               			],
+               			"attribute": [],
+               			"summary": {
+               				"medium": "A behind-the-scenes look at the latest trip into JK Rowling's wizarding world, including interviews with stars Eddie Redmayne and Colin Farrell",
+               				"short": "A behind-the-scenes look at the latest trip into JK Rowling's wizarding world"
+               			},
+               			"related": [],
+               			"link": [],
+               			"subject": [{
+               				"code": "programme:patv:2524488",
+               				"profile": "asset"
+               			}]
+               		},
+               		"available": "2018-02-01T13:55:00.000Z",
+               		"attribute": [
+               			"now-tv"
+               		],
+               		"summary": {},
+               		"channel": {
+               			"title": "Sky Cinema Premiere",
+               			"id": "3a84612c-318d-56a1-8a39-bcff1bd6c2e8"
+               		}
+               	}]
+               }
 
 
 parameters:
