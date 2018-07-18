@@ -440,7 +440,15 @@ paths:
                			"code": "channel:youview:12257552",
                			"profile": "channel"
                		}
-               	]
+               	],
+                "media": [{
+                  "kind": "image:logo",
+                  "rendition": {
+                    "default": {
+                      "href": "p131847.png"
+                    }
+                  }
+               	}]
                }
 
   /asset:
