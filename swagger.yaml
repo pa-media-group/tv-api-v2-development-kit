@@ -290,7 +290,7 @@ paths:
         If you are interested in a list of channels that have had there schedule updated you can filter by the following query params.
          - scheduleStart
          - scheduleEnd
-         - updatedSince
+         - scheduleUpdatedSince
          
         adding these query params will filter the channel collection to only return channels that have been updated within the given range, updatedSince stores the state of your previous call.
         
