@@ -40,7 +40,7 @@ paths:
             application/json: |-
               {
                 "limit": 30,
-                "items": [
+                "item": [
                   {
                     "id": "2254c5d8-1f7a-3741-96a8-12349f7a612e",
                     "title": "BT TV",
@@ -230,7 +230,7 @@ paths:
             application/json: |-
               {
                 "limit": 5,
-                "items": [
+                "item": [
                     {
                         "id": "8e0c3099-fe15-352b-9f78-c4f72276826a",
                         "title": "Anglia",
