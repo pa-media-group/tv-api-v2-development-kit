@@ -600,6 +600,7 @@ paths:
               	"media": [{
               		"kind": "image:asset",
               		"copyright": "¬© HBO",
+              		"expiry": "2019-01-01T00:00:00.000Z",
               		"rendition": {
               			"default": {
               				"href": "https://tv.assets.pressassociation.io/aa8e0f8e-6650-50dc-8196-919e7caeba2c.jpg"
