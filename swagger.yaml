@@ -31,6 +31,7 @@ paths:
         - application/json
       parameters:
         - $ref: '#/parameters/Aliases'
+          type: boolean
       responses:
         200:
           description: ''
@@ -160,8 +161,9 @@ paths:
       produces:
         - application/json
       parameters:
-      - $ref: '#/parameters/PlatformId'
-        in: path
+        - $ref: '#/parameters/PlatformId'
+          in: path
+          type: string
       responses:
         200:
           description: ''
@@ -192,7 +194,9 @@ paths:
       parameters:
         - $ref: '#/parameters/PlatformId'
           in: path      
+          type: string
         - $ref: '#/parameters/Aliases'
+          type: boolean
       responses:
         200:
           description: ''
@@ -255,13 +259,20 @@ paths:
         - application/json
       parameters:
         - $ref: '#/parameters/PlatformIdQuery'
+          type: string
         - $ref: '#/parameters/RegionIdQuery'
+          type: string
         - $ref: '#/parameters/Aliases'
+          type: boolean
         - $ref: '#/parameters/Date'
           description: "Date of the Channel State to select, this will display channel names and attributes in the future or past."
+          type: string
         - $ref: '#/parameters/ScheduleStart'
+          type: string
         - $ref: '#/parameters/ScheduleEnd'
+          type: string
         - $ref: '#/parameters/ScheduleUpdatedSince'
+          type: string
       responses:
         200:
           description: ''
@@ -385,7 +396,9 @@ paths:
       parameters:
         - $ref: '#/parameters/ChannelId'
           in: path
+          type: string
         - $ref: '#/parameters/Aliases'
+          type: boolean
       responses:
         200:
           description: ''
@@ -438,9 +451,13 @@ paths:
         - application/json
       parameters:
         - $ref: '#/parameters/After'
+          type: string
         - $ref: '#/parameters/UpdatedSince'
+          type: string
         - $ref: '#/parameters/Limit'
+          type: integer
         - $ref: '#/parameters/Aliases'
+          type: boolean
       responses:
         200:
           description: ''
@@ -561,7 +578,9 @@ paths:
         - $ref: '#/parameters/AssetId'
           in: path
           required: true
+          type: string
         - $ref: '#/parameters/Aliases'
+          type: boolean
       responses:
         200:
           description: ''
@@ -644,7 +663,9 @@ paths:
         - $ref: '#/parameters/AssetId'
           in: path
           required: true
+          type: string
         - $ref: '#/parameters/Aliases'
+          type: boolean
       responses:
         200:
           description: ''
@@ -918,9 +939,13 @@ paths:
         - application/json
       parameters:
         - $ref: '#/parameters/After'
+          type: string
         - $ref: '#/parameters/UpdatedSince'
+          type: string
         - $ref: '#/parameters/Limit'
+          type: integer
         - $ref: '#/parameters/Aliases'
+          type: boolean
       responses:
         200:
           description: ''
@@ -1069,7 +1094,9 @@ paths:
         - $ref: '#/parameters/ContributorId'
           in: path
           required: true
+          type: string
         - $ref: '#/parameters/Aliases'
+          type: boolean
       responses:
         200:
           description: ''
@@ -1118,9 +1145,13 @@ paths:
         - application/json
       parameters:
         - $ref: '#/parameters/ChannelId'
+          type: string
         - $ref: '#/parameters/Start'
+          type: string
         - $ref: '#/parameters/End'
+          type: string
         - $ref: '#/parameters/Aliases'
+          type: boolean
       responses:
         200:
           description: ''
@@ -1356,12 +1387,15 @@ paths:
         - $ref: '#/parameters/Date'
           name: date
           required: false
+          type: string
         - $ref: '#/parameters/Date'
           name: start
           required: false
+          type: string
         - $ref: '#/parameters/Date'
           name: end
           required: false
+          type: string
       responses:
         200:
           description: ''
@@ -1513,6 +1547,7 @@ paths:
         - $ref: '#/parameters/FeatureId'
           in: path
           required: true
+          type: string
       responses:
         200:
           description: ''
