@@ -164,6 +164,7 @@ paths:
         - $ref: '#/parameters/PlatformId'
           in: path
           type: string
+          required: true
       responses:
         200:
           description: ''
@@ -195,6 +196,7 @@ paths:
         - $ref: '#/parameters/PlatformId'
           in: path      
           type: string
+          required: true
         - $ref: '#/parameters/Aliases'
           type: boolean
       responses:
@@ -397,6 +399,7 @@ paths:
         - $ref: '#/parameters/ChannelId'
           in: path
           type: string
+          required: true
         - $ref: '#/parameters/Aliases'
           type: boolean
       responses:
