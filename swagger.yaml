@@ -163,8 +163,8 @@ paths:
       parameters:
         - $ref: '#/parameters/PlatformId'
           in: path
-          type: string
           required: true
+          type: string
       responses:
         200:
           description: ''
@@ -194,9 +194,9 @@ paths:
         - application/json
       parameters:
         - $ref: '#/parameters/PlatformId'
-          in: path      
-          type: string
+          in: path    
           required: true
+          type: string
         - $ref: '#/parameters/Aliases'
           type: boolean
       responses:
@@ -398,8 +398,8 @@ paths:
       parameters:
         - $ref: '#/parameters/ChannelId'
           in: path
-          type: string
           required: true
+          type: string
         - $ref: '#/parameters/Aliases'
           type: boolean
       responses:
