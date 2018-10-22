@@ -166,6 +166,7 @@ paths:
         - application/json
       parameters:
         - $ref: '#/parameters/PlatformId'
+          name: platformId
           in: path
           required: true
           type: string
