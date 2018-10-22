@@ -1381,12 +1381,7 @@ paths:
       produces:
         - application/json
       parameters: 
-        - name: type
-          in: query
-          required: false
-          type: string
-          default: netflix-monthly
-          description: The namespace of the feature type.
+        - $ref: '#/parameters/FeatureType'
         - $ref: '#/parameters/Date'
           name: date
           required: false
@@ -1867,3 +1862,10 @@ parameters:
     type: boolean
     default: true
     description: Flag to display Legacy and Provider Ids.
+  FeatureType: 
+    name: type
+    in: query
+    required: false
+    type: string
+    default: netflix-monthly
+    description: The namespace of the feature type.
