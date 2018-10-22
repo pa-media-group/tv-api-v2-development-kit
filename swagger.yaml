@@ -274,14 +274,14 @@ paths:
       parameters:
         - name: platformId
           in: query
-          required: true
+          required: false
           type: string
           default: d3b26caa-8c7d-5f97-9eff-40fcf1a6f8d3
           description: The identifier for the selected platform. Multiple platforms can be passed to the API without a region Id. Passing multiple platforms without a region will not return epg numbers as these are linked to a platform and region.
 
         - name: regionId
           in: query
-          required: true
+          required: false
           type: string
           default: afa4f624-da9b-54ce-b514-570345dbbdce
           description: The platform region ID for the channel selection.
