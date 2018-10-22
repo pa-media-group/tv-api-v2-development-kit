@@ -16,7 +16,7 @@ schemes:
   - http
 produces:
   - application/json
-  
+
 paths:
   /platform:
     get:
@@ -152,7 +152,7 @@ paths:
               		}
               	]
               }
-            
+
   /platform/{platformId}:
     get:
       description: Return the content of the selected platform.
@@ -165,11 +165,12 @@ paths:
       produces:
         - application/json
       parameters:
-        - $ref: '#/parameters/PlatformId'
-          name: platformId
+        - name: platformId
           in: path
           required: true
           type: string
+          default: d3b26caa-8c7d-5f97-9eff-40fcf1a6f8d3
+          description: The identifier for the selected platform.
       responses:
         200:
           description: ''
@@ -198,12 +199,18 @@ paths:
       produces:
         - application/json
       parameters:
-        - $ref: '#/parameters/PlatformId'
-          in: path    
+        - name: platformId
+          in: path
           required: true
           type: string
-        - $ref: '#/parameters/Aliases'
+          default: d3b26caa-8c7d-5f97-9eff-40fcf1a6f8d3
+          description: The identifier for the selected platform.
+        - name: aliases
+          in: query
+          required: false
           type: boolean
+          default: true
+          description: Flag to display Legacy and Provider Ids.
       responses:
         200:
           description: ''
@@ -237,10 +244,10 @@ paths:
               				"code": "region:patv:3",
               				"profile": "region"
               			}]
-              		}		
+              		}
               	]
               }
-  
+
   /channel:
     get:
       description: |-
@@ -248,13 +255,13 @@ paths:
          - scheduleStart
          - scheduleEnd
          - scheduleUpdatedSince
-         
+
         adding these query params will filter the channel collection to only return channels that have been updated within the given range, updatedSince stores the state of your previous call.
-        
+
         Example Usage: Every 10 minutes get me the channels that have updated schedules for the next 2 weeks.
-        
+
         /channel?platform={uuid}&scheduleStart={today}&scheduleEnd={today + 2 weeks}&updatedSince={10 minutes ago}
-        
+
         Also please note epg numbers are only exposed when a platform and region are passed to the query.
       summary: Channel Collection
       tags:
@@ -265,21 +272,59 @@ paths:
       produces:
         - application/json
       parameters:
-        - $ref: '#/parameters/PlatformIdQuery'
+        - name: platformId
+          in: query
+          required: true
           type: string
-        - $ref: '#/parameters/RegionIdQuery'
+          default: d3b26caa-8c7d-5f97-9eff-40fcf1a6f8d3
+          description: The identifier for the selected platform. Multiple platforms can be passed to the API without a region Id. Passing multiple platforms without a region will not return epg numbers as these are linked to a platform and region.
+
+        - name: regionId
+          in: query
+          required: true
           type: string
-        - $ref: '#/parameters/Aliases'
+          default: afa4f624-da9b-54ce-b514-570345dbbdce
+          description: The platform region ID for the channel selection.
+
+        - name: aliases
+          in: query
+          required: false
           type: boolean
-        - $ref: '#/parameters/Date'
+          default: true
+          description: Flag to display Legacy and Provider Ids.
+
+        - name: start
+          in: query
+          required: false
+          default: 2018-09-15
+          pattern: date
+          type: string
           description: "Date of the Channel State to select, this will display channel names and attributes in the future or past."
+
+        - name: scheduleStart
+          in: query
+          required: false
           type: string
-        - $ref: '#/parameters/ScheduleStart'
+          pattern: date-time
+          default: '2015-05-05T00:00:00'
+          description: The Start Date for the schedule.
+
+        - name: scheudleEnd
+          in: query
+          required: false
           type: string
-        - $ref: '#/parameters/ScheduleEnd'
+          default: '2015-05-06T00:00:00'
+          pattern: date-time
+          description: The End Date for the schedule.
+
+        - name: scheduleUpdatedSince
+          in: query
+          required: false
+          default: '2015-05-05T00:00:00'
+          pattern: date-time
           type: string
-        - $ref: '#/parameters/ScheduleUpdatedSince'
-          type: string
+          description: "Schedule Updated Since"
+
       responses:
         200:
           description: ''
@@ -401,12 +446,18 @@ paths:
       produces:
         - application/json
       parameters:
-        - $ref: '#/parameters/ChannelId'
+        - name: channelId
           in: path
           required: true
           type: string
-        - $ref: '#/parameters/Aliases'
+          description: The identifier for the selected channel.
+
+        - name: aliases
+          in: query
+          required: false
           type: boolean
+          default: true
+          description: Flag to display Legacy and Provider Ids.
       responses:
         200:
           description: ''
@@ -458,14 +509,38 @@ paths:
       produces:
         - application/json
       parameters:
-        - $ref: '#/parameters/After'
+        - name: after
+          in: query
+          required: false
           type: string
-        - $ref: '#/parameters/UpdatedSince'
+          default: cfab77d4-5d98-42fc-b7d9-40271e420f72
+          description: The Id of the entity you would like to page after.
+
+        - name: updatedSince
+          in: query
+          required: false
+          default: '2015-05-05T00:00:00'
+          pattern: date-time
           type: string
-        - $ref: '#/parameters/Limit'
+          description: "Updated Since"
+
+        - name: limit
+          in: query
+          required: false
           type: integer
-        - $ref: '#/parameters/Aliases'
+          format: int32
+          default: 100
+          description: >-
+            Limit the the number of items to be returned per page. For example: 5.
+
+            The 'limit' parameter is typically used with the 'offset' parameter to facilitate pagination.
+
+        - name: aliases
+          in: query
+          required: false
           type: boolean
+          default: true
+          description: Flag to display Legacy and Provider Ids.
       responses:
         200:
           description: ''
@@ -570,7 +645,7 @@ paths:
               		}
               	]
               }
-      
+
   /asset/{assetId}:
     get:
       description: Return the content of the selected asset.
@@ -583,12 +658,19 @@ paths:
       produces:
         - application/json
       parameters:
-        - $ref: '#/parameters/AssetId'
+        - name: assetId
           in: path
           required: true
           type: string
-        - $ref: '#/parameters/Aliases'
+          description: A asset ID filter for the schedule collection. This can be a reference to any type of asset i.e. movie, season, series or episode.
+
+        - name: aliases
+          in: query
+          required: false
           type: boolean
+          default: true
+          description: Flag to display Legacy and Provider Ids.
+
       responses:
         200:
           description: ''
@@ -668,12 +750,19 @@ paths:
       produces:
         - application/json
       parameters:
-        - $ref: '#/parameters/AssetId'
+        - name: assetId
           in: path
           required: true
           type: string
-        - $ref: '#/parameters/Aliases'
+          description: A asset ID filter for the schedule collection. This can be a reference to any type of asset i.e. movie, season, series or episode.
+
+        - name: aliases
+          in: query
+          required: false
           type: boolean
+          default: true
+          description: Flag to display Legacy and Provider Ids.
+
       responses:
         200:
           description: ''
@@ -932,8 +1021,8 @@ paths:
               			]
               		}
               	]
-              }    
-              
+              }
+
   /contributor:
     get:
       description: Return a collection of Contributors.
@@ -946,14 +1035,38 @@ paths:
       produces:
         - application/json
       parameters:
-        - $ref: '#/parameters/After'
+        - name: after
+          in: query
+          required: false
           type: string
-        - $ref: '#/parameters/UpdatedSince'
+          default: cfab77d4-5d98-42fc-b7d9-40271e420f72
+          description: The Id of the entity you would like to page after.
+
+        - name: updatedSince
+          in: query
+          required: false
+          default: '2015-05-05T00:00:00'
+          pattern: date-time
           type: string
-        - $ref: '#/parameters/Limit'
+          description: "Updated Since"
+
+        - name: limit
+          in: query
+          required: false
           type: integer
-        - $ref: '#/parameters/Aliases'
+          format: int32
+          default: 100
+          description: >-
+            Limit the the number of items to be returned per page. For example: 5.
+
+            The 'limit' parameter is typically used with the 'offset' parameter to facilitate pagination.
+
+        - name: aliases
+          in: query
+          required: false
           type: boolean
+          default: true
+          description: Flag to display Legacy and Provider Ids.
       responses:
         200:
           description: ''
@@ -1085,7 +1198,7 @@ paths:
               			"updatedAt": "2018-09-13T10:00:40.717Z"
               		}
               	]
-              }        
+              }
 
   /contributor/{contributorId}:
     get:
@@ -1099,12 +1212,19 @@ paths:
       produces:
         - application/json
       parameters:
-        - $ref: '#/parameters/ContributorId'
+        - name: contributorId
           in: path
           required: true
           type: string
-        - $ref: '#/parameters/Aliases'
+          description: Filter the schedule items by contributor ID
+
+        - name: aliases
+          in: query
+          required: false
           type: boolean
+          default: true
+          description: Flag to display Legacy and Provider Ids.
+
       responses:
         200:
           description: ''
@@ -1133,16 +1253,16 @@ paths:
               	"createdAt": "2018-07-18T16:20:19.008Z",
               	"updatedAt": "2018-07-18T16:20:19.008Z"
               }
-   
+
   /schedule:
     get:
-      description: |- 
+      description: |-
         The schedule endpoint produces a linear TV schedule for a given channel and date range.
-        
+
          - The date range supplied must be no larger than 21 days.
          - If no end data is passed the API will default to start date + 24 hours.
-         
-         
+
+
       summary: Schedule Collection
       tags:
         - Schedule
@@ -1152,14 +1272,34 @@ paths:
       produces:
         - application/json
       parameters:
-        - $ref: '#/parameters/ChannelId'
+        - name: channelId
+          in: query
+          required: true
           type: string
-        - $ref: '#/parameters/Start'
+          description: The identifier for the selected channel.
+
+        - name: start
+          in: query
+          required: true
           type: string
-        - $ref: '#/parameters/End'
+          pattern: date-time
+          default: '2015-05-05T00:00:00'
+          description: The Start Date for the schedule.
+
+        - name: end
+          in: query
+          required: false
           type: string
-        - $ref: '#/parameters/Aliases'
+          default: '2015-05-06T00:00:00'
+          pattern: date-time
+          description: The End Date for the schedule.
+
+        - name: aliases
+          in: query
+          required: false
           type: boolean
+          default: true
+          description: Flag to display Legacy and Provider Ids.
       responses:
         200:
           description: ''
@@ -1333,7 +1473,7 @@ paths:
               			}
               		}
               	]
-              }    
+              }
 
   /feature-type:
     get:
@@ -1372,7 +1512,7 @@ paths:
               			"namespace": "monthly-all4"
               		}
               	]
-              }          
+              }
 
   /feature:
     get:
@@ -1385,172 +1525,38 @@ paths:
         - apikey: []
       produces:
         - application/json
-      parameters: 
-        - $ref: '#/parameters/FeatureType'
-        - $ref: '#/parameters/Date'
-          name: date
-          required: false
-          type: string
-        - $ref: '#/parameters/Date'
-          name: start
-          required: false
-          type: string
-        - $ref: '#/parameters/Date'
-          name: end
-          required: false
-          type: string
-      responses:
-        200:
-          description: ''
-          schema:
-            type: object
-          examples:
-            application/json: |-
-              {
-              	"id": "98bfb7dc-2531-56b7-acb0-fdbe1b8c1e48",
-              	"start": "2018-08-31T23:00:00.000Z",
-              	"end": "2018-09-30T22:59:59.999Z",
-              	"type": "monthly-all4",
-              	"selection": [{
-              			"available": "2018-09-08T00:00:00.000Z",
-              			"summary": {
-              				"long": "(Available now) Remember an Icelandic crime series called Case, which was available early in 2017? The Court is its prequel, set in the offices of a Reykjavik law firm. Lawyers Brynhildur and Hordur offer support to their colleague, Logi Traustason, when he becomes increasingly obsessed with solving a bizarre incident from his youth that led him to his incarceration for manslaughter. The Court, or Rettur as it's known in its native country, is Iceland's most acclaimed crime series ever, and after watching the first episode, you'll realise why."
-              			},
-              			"attribute": [],
-              			"asset": {
-              				"id": "b171d710-cfce-5cf0-835d-f5d99d7f3b49",
-              				"type": "episode",
-              				"certification": {},
-              				"meta": {},
-              				"category": [{
-              						"code": "movie-drama",
-              						"name": "Movie/Drama"
-              					},
-              					{
-              						"code": "movie-drama:detective-thriller",
-              						"name": "Detective/Thriller",
-              						"dvb": "1100"
-              					}
-              				],
-              				"attribute": [],
-              				"summary": {
-              					"short": "Icelandic crime drama, starring Magnús Jónsson"
-              				},
-              				"media": [],
-              				"related": [{
-              					"type": "series",
-              					"id": "5c6f9b04-ed1f-5c64-b4da-44527804f319",
-              					"title": "The Court",
-              					"subject": [{
-              						"code": "series:patv:266353",
-              						"profile": "asset"
-              					}],
-              					"media": []
-              				}],
-              				"subject": [{
-              					"code": "programme:patv:3071733",
-              					"profile": "asset"
-              				}],
-              				"link": []
-              			}
-              		},
-              		{
-              			"available": "2018-09-08T00:00:00.000Z",
-              			"summary": {
-              				"long": "(From Friday) After Friday, when the internationally renowned VICE channel makes 900 hours of its award-winning programmes available via All 4, viewers really won't be able to say they can't find anything to watch anymore. Among the highlights we can expect Jamali Maddix's documentary series Hate Thy Neighbour, the Emmy-nominated travel series Gaycation, Black Market, which is a personal project for The Wire and Boardwalk Empire star Michael K Williams, and Needles and Pins, an in-depth look at the tattoo scene."
-              			},
-              			"attribute": [],
-              			"asset": {
-              				"id": "ef8805aa-ee59-5985-aa15-86b755c63e83",
-              				"type": "episode",
-              				"certification": {},
-              				"meta": {},
-              				"category": [{
-              						"code": "social-political-issues-economics",
-              						"name": "Social/Political Issues/Economics"
-              					},
-              					{
-              						"code": "social-political-issues-economics:general",
-              						"name": "General",
-              						"dvb": "8000"
-              					}
-              				],
-              				"attribute": [],
-              				"summary": {
-              					"short": "All4 on demand platform"
-              				},
-              				"media": [],
-              				"related": [{
-              					"type": "series",
-              					"id": "5b1ff7e7-5cbc-5e80-a9b3-1b065d384ac9",
-              					"title": "Vice",
-              					"subject": [{
-              						"code": "series:patv:266357",
-              						"profile": "asset"
-              					}],
-              					"media": []
-              				}],
-              				"subject": [{
-              					"code": "programme:patv:3071756",
-              					"profile": "asset"
-              				}],
-              				"link": []
-              			}
-              		},
-              		{
-              			"available": "2018-09-01T00:00:00.000Z",
-              			"summary": {},
-              			"attribute": [],
-              			"asset": {
-              				"id": "bc0324e2-14d3-51fc-aff4-012ba9871ffb",
-              				"type": "episode",
-              				"title": "Box Set",
-              				"certification": {},
-              				"meta": {},
-              				"category": [],
-              				"attribute": [],
-              				"summary": {
-              					"short": "Drama following a group of young people in Chester",
-              					"medium": "Drama following the lives and loves of young people in Chester",
-              					"long": "Drama following the lives and loves of a group of teenagers and young adults in Chester"
-              				},
-              				"media": [],
-              				"related": [{
-              					"type": "series",
-              					"id": "895826b7-cce2-52fb-91bd-46419c793880",
-              					"title": "Hollyoaks",
-              					"subject": [{
-              						"code": "series:patv:798",
-              						"profile": "asset"
-              					}],
-              					"media": []
-              				}],
-              				"subject": [{
-              					"code": "programme:patv:3049329",
-              					"profile": "asset"
-              				}],
-              				"link": []
-              			}
-              		}
-              	]
-              }  
-
-  /feature/{featureId}:
-    get:
-      description: Return the content of the selected feature.
-      summary: Feature Detail
-      tags:
-        - Feature
-      operationId: getFeature
-      security:
-        - apikey: []
-      produces:
-        - application/json
       parameters:
-        - $ref: '#/parameters/FeatureId'
-          in: path
-          required: true
+        - name: type
+          in: query
+          required: false
           type: string
+          default: netflix-monthly
+          description: The namespace of the feature type.
+
+        - name: date
+          in: query
+          required: false
+          default: 2018-09-15
+          pattern: date
+          type: string
+          description: "Date of the collection of feature items."
+
+        - name: start
+          in: query
+          required: false
+          default: 2018-09-15
+          pattern: date
+          type: string
+          description: "Start date for a range of features."
+
+        - name: end
+          in: query
+          required: false
+          default: 2018-10-15
+          pattern: date
+          type: string
+          description: "End date for a range of features."
+
       responses:
         200:
           description: ''
@@ -1687,190 +1693,155 @@ paths:
               	]
               }
 
-
-parameters:
-  Accept:
-    name: Accept
-    in: header
-    required: false
-    type: string
-    enum:
-      - application/json
-    description: The response format.
-    default: application/json
-  Query:  
-    name: query
-    in: query
-    required: false
-    type: string
-    description: Search string to query the objects and return matching results.
-  Limit:
-    name: limit
-    in: query
-    required: false
-    type: integer
-    format: int32
-    default: 100
-    description: >-
-      Limit the the number of items to be returned per page. For example: 5.
-
-      The 'limit' parameter is typically used with the 'offset' parameter to facilitate pagination.
-  Offset: 
-    name: offset
-    in: query
-    required: false
-    type: integer
-    format: int32
-    description: >-
-      The page offset of the first item to be returned. For example: 2.
-
-      The 'offset' parameter is typically used with the 'limit' parameter to facilitate pagination.
-  PlatformId:    
-    name: platformId
-    in: query
-    required: true
-    type: string
-    default: d3b26caa-8c7d-5f97-9eff-40fcf1a6f8d3
-    description: The identifier for the selected platform. Multiple platforms can be passed to the API without a region Id. Passing multiple platforms without a region will not return epg numbers as these are linked to a platform and region.
-  PlatformIdQuery:    
-    name: platformId
-    in: query
-    required: false
-    type: string
-    default: d3b26caa-8c7d-5f97-9eff-40fcf1a6f8d3
-    description: The identifier for the selected platform. Multiple platforms can be passed to the API without a region Id. Passing multiple platforms without a region will not return epg numbers as these are linked to a platform and region.
-  RegionId:
-    name: regionId
-    in: query
-    required: true
-    type: string
-    default: afa4f624-da9b-54ce-b514-570345dbbdce
-    description: The platform region ID for the channel selection.
-  RegionIdQuery:
-    name: regionId
-    in: query
-    required: false
-    type: string
-    default: afa4f624-da9b-54ce-b514-570345dbbdce
-    description: The platform region ID for the channel selection.
-  ChannelId:  
-    name: channelId
-    in: query
-    required: true
-    type: string
-    description: The identifier for the selected channel.
-  ScheduleStart:  
-    name: scheduleStart
-    in: query
-    required: false
-    type: string
-    pattern: date-time
-    default: '2015-05-05T00:00:00'
-    description: The Start Date for the schedule.
-  ScheduleEnd:  
-    name: scheudleEnd
-    in: query
-    required: false
-    type: string
-    default: '2015-05-06T00:00:00'
-    pattern: date-time
-    description: The End Date for the schedule.
-  Date:
-    name: start
-    in: query
-    required: false
-    default: 2015-05-05
-    pattern: date
-    type: string
-    description: "Example Date"  
-  UpdatedSince:
-    name: updatedSince
-    in: query
-    required: false
-    default: '2015-05-05T00:00:00'
-    pattern: date-time
-    type: string
-    description: "Updated Since"  
-  ScheduleUpdatedSince:
-    name: scheduleUpdatedSince
-    in: query
-    required: false
-    default: '2015-05-05T00:00:00'
-    pattern: date-time
-    type: string
-    description: "Schedule Updated Since"  
-  AssetId:  
-    name: assetId
-    in: query
-    required: false
-    type: string
-    description: A asset ID filter for the schedule collection. This can be a reference to any type of asset i.e. movie, season, series or episode.
-  After:  
-    name: after
-    in: query
-    required: false
-    type: string
-    default: cfab77d4-5d98-42fc-b7d9-40271e420f72
-    description: The Id of the entity you would like to page after. 
-  Start:  
-    name: start
-    in: query
-    required: true
-    type: string
-    pattern: date-time
-    default: '2015-05-05T00:00:00'
-    description: The Start Date for the schedule.
-  End:  
-    name: end
-    in: query
-    required: false
-    type: string
-    default: '2015-05-06T00:00:00'
-    pattern: date-time
-    description: The End Date for the schedule.
-  ContributorId:
-    name: contributorId
-    in: query
-    required: false
-    type: string
-    description: Filter the schedule items by contributor ID
-  Type:
-    name: type
-    in: query
-    required: false
-    default: movie
-    type: string
-    description: Type filter for the assets.i.e episode, movie, season or series
-  Tag:
-    name: tag
-    in: query
-    required: false
-    default: genre:comedy
-    type: string
-    description: Tag filter for the assets  
-  ContributorType:
-    name: type
-    in: query
-    required: false
-    type: string
-    description: Type filter for the assets. i.e. cast, director or producer
-  FeatureId:  
-    name: featureId
-    in: query
-    required: true
-    type: string
-    description: The identifier for the selected feature.
-  Aliases:  
-    name: aliases
-    in: query
-    required: false
-    type: boolean
-    default: true
-    description: Flag to display Legacy and Provider Ids.
-  FeatureType: 
-    name: type
-    in: query
-    required: false
-    type: string
-    default: netflix-monthly
-    description: The namespace of the feature type.
+  /feature/{featureId}:
+    get:
+      description: Return the content of the selected feature.
+      summary: Feature Detail
+      tags:
+        - Feature
+      operationId: getFeature
+      security:
+        - apikey: []
+      produces:
+        - application/json
+      parameters:
+        - name: featureId
+          in: path
+          required: true
+          type: string
+          description: The identifier for the selected feature.
+      responses:
+        200:
+          description: ''
+          schema:
+            type: object
+          examples:
+            application/json: |-
+              {
+              	"id": "98bfb7dc-2531-56b7-acb0-fdbe1b8c1e48",
+              	"start": "2018-08-31T23:00:00.000Z",
+              	"end": "2018-09-30T22:59:59.999Z",
+              	"type": "monthly-all4",
+              	"selection": [{
+              			"available": "2018-09-08T00:00:00.000Z",
+              			"summary": {
+              				"long": "(Available now) Remember an Icelandic crime series called Case, which was available early in 2017? The Court is its prequel, set in the offices of a Reykjavik law firm. Lawyers Brynhildur and Hordur offer support to their colleague, Logi Traustason, when he becomes increasingly obsessed with solving a bizarre incident from his youth that led him to his incarceration for manslaughter. The Court, or Rettur as it's known in its native country, is Iceland's most acclaimed crime series ever, and after watching the first episode, you'll realise why."
+              			},
+              			"attribute": [],
+              			"asset": {
+              				"id": "b171d710-cfce-5cf0-835d-f5d99d7f3b49",
+              				"type": "episode",
+              				"certification": {},
+              				"meta": {},
+              				"category": [{
+              						"code": "movie-drama",
+              						"name": "Movie/Drama"
+              					},
+              					{
+              						"code": "movie-drama:detective-thriller",
+              						"name": "Detective/Thriller",
+              						"dvb": "1100"
+              					}
+              				],
+              				"attribute": [],
+              				"summary": {
+              					"short": "Icelandic crime drama, starring Magnús Jónsson"
+              				},
+              				"media": [],
+              				"related": [{
+              					"type": "series",
+              					"id": "5c6f9b04-ed1f-5c64-b4da-44527804f319",
+              					"title": "The Court",
+              					"subject": [{
+              						"code": "series:patv:266353",
+              						"profile": "asset"
+              					}],
+              					"media": []
+              				}],
+              				"subject": [{
+              					"code": "programme:patv:3071733",
+              					"profile": "asset"
+              				}],
+              				"link": []
+              			}
+              		},
+              		{
+              			"available": "2018-09-08T00:00:00.000Z",
+              			"summary": {
+              				"long": "(From Friday) After Friday, when the internationally renowned VICE channel makes 900 hours of its award-winning programmes available via All 4, viewers really won't be able to say they can't find anything to watch anymore. Among the highlights we can expect Jamali Maddix's documentary series Hate Thy Neighbour, the Emmy-nominated travel series Gaycation, Black Market, which is a personal project for The Wire and Boardwalk Empire star Michael K Williams, and Needles and Pins, an in-depth look at the tattoo scene."
+              			},
+              			"attribute": [],
+              			"asset": {
+              				"id": "ef8805aa-ee59-5985-aa15-86b755c63e83",
+              				"type": "episode",
+              				"certification": {},
+              				"meta": {},
+              				"category": [{
+              						"code": "social-political-issues-economics",
+              						"name": "Social/Political Issues/Economics"
+              					},
+              					{
+              						"code": "social-political-issues-economics:general",
+              						"name": "General",
+              						"dvb": "8000"
+              					}
+              				],
+              				"attribute": [],
+              				"summary": {
+              					"short": "All4 on demand platform"
+              				},
+              				"media": [],
+              				"related": [{
+              					"type": "series",
+              					"id": "5b1ff7e7-5cbc-5e80-a9b3-1b065d384ac9",
+              					"title": "Vice",
+              					"subject": [{
+              						"code": "series:patv:266357",
+              						"profile": "asset"
+              					}],
+              					"media": []
+              				}],
+              				"subject": [{
+              					"code": "programme:patv:3071756",
+              					"profile": "asset"
+              				}],
+              				"link": []
+              			}
+              		},
+              		{
+              			"available": "2018-09-01T00:00:00.000Z",
+              			"summary": {},
+              			"attribute": [],
+              			"asset": {
+              				"id": "bc0324e2-14d3-51fc-aff4-012ba9871ffb",
+              				"type": "episode",
+              				"title": "Box Set",
+              				"certification": {},
+              				"meta": {},
+              				"category": [],
+              				"attribute": [],
+              				"summary": {
+              					"short": "Drama following a group of young people in Chester",
+              					"medium": "Drama following the lives and loves of young people in Chester",
+              					"long": "Drama following the lives and loves of a group of teenagers and young adults in Chester"
+              				},
+              				"media": [],
+              				"related": [{
+              					"type": "series",
+              					"id": "895826b7-cce2-52fb-91bd-46419c793880",
+              					"title": "Hollyoaks",
+              					"subject": [{
+              						"code": "series:patv:798",
+              						"profile": "asset"
+              					}],
+              					"media": []
+              				}],
+              				"subject": [{
+              					"code": "programme:patv:3049329",
+              					"profile": "asset"
+              				}],
+              				"link": []
+              			}
+              		}
+              	]
+              }
