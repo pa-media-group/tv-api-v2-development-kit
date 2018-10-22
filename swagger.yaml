@@ -309,7 +309,7 @@ paths:
           default: '2015-05-05T00:00:00'
           description: The Start Date for the schedule.
 
-        - name: scheudleEnd
+        - name: scheduleEnd
           in: query
           required: false
           type: string
