@@ -30,8 +30,12 @@ paths:
       produces:
         - application/json
       parameters:
-        - $ref: '#/parameters/Aliases'
+        - name: aliases
+          in: query
+          required: false
           type: boolean
+          default: true
+          description: Flag to display Legacy and Provider Ids.
       responses:
         200:
           description: ''
