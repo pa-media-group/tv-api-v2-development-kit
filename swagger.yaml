@@ -533,8 +533,6 @@ paths:
           description: >-
             Limit the the number of items to be returned per page. For example: 5.
 
-            The 'limit' parameter is typically used with the 'offset' parameter to facilitate pagination.
-
         - name: aliases
           in: query
           required: false
@@ -1058,8 +1056,6 @@ paths:
           default: 100
           description: >-
             Limit the the number of items to be returned per page. For example: 5.
-
-            The 'limit' parameter is typically used with the 'offset' parameter to facilitate pagination.
 
         - name: aliases
           in: query
