@@ -509,20 +509,22 @@ paths:
       produces:
         - application/json
       parameters:
-        - name: after
-          in: query
-          required: false
-          type: string
-          default: cfab77d4-5d98-42fc-b7d9-40271e420f72
-          description: The Id of the entity you would like to page after.
 
-        - name: updatedSince
+        - name: updatedAfter
           in: query
           required: false
-          default: '2015-05-05T00:00:00'
+          default: '2015-05-05T00:00:00.000Z'
           pattern: date-time
           type: string
-          description: "Updated Since"
+          description: "Updated After"
+
+        - name: updatedBefore
+          in: query
+          required: false
+          default: '2015-05-05T01:00:00.000Z'
+          pattern: date-time
+          type: string
+          description: "Updated Before"
 
         - name: limit
           in: query
@@ -1033,20 +1035,21 @@ paths:
       produces:
         - application/json
       parameters:
-        - name: after
+        - name: updatedAfter
           in: query
           required: false
-          type: string
-          default: cfab77d4-5d98-42fc-b7d9-40271e420f72
-          description: The Id of the entity you would like to page after.
-
-        - name: updatedSince
-          in: query
-          required: false
-          default: '2015-05-05T00:00:00'
+          default: '2015-05-05T00:00:00.000Z'
           pattern: date-time
           type: string
-          description: "Updated Since"
+          description: "Updated After"
+
+        - name: updatedBefore
+          in: query
+          required: false
+          default: '2015-05-05T01:00:00.000Z'
+          pattern: date-time
+          type: string
+          description: "Updated Before"
 
         - name: limit
           in: query
