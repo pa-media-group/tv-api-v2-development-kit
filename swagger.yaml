@@ -518,14 +518,6 @@ paths:
           type: string
           description: "Updated After"
 
-        - name: updatedBefore
-          in: query
-          required: false
-          default: '2015-05-05T01:00:00.000Z'
-          pattern: date-time
-          type: string
-          description: "Updated Before"
-
         - name: limit
           in: query
           required: false
@@ -1042,14 +1034,6 @@ paths:
           pattern: date-time
           type: string
           description: "Updated After"
-
-        - name: updatedBefore
-          in: query
-          required: false
-          default: '2015-05-05T01:00:00.000Z'
-          pattern: date-time
-          type: string
-          description: "Updated Before"
 
         - name: limit
           in: query
