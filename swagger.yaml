@@ -596,7 +596,7 @@ paths:
               				"href": "https://tv.api.pressassociation.io/v2/asset/5ad4cc44-3f18-52c5-8a3b-b65e791a25cf/contributor"
               			}],
               			"createdAt": "2018-07-21T18:07:00.425Z",
-              			"updatedAt": "2018-09-13T12:32:41.140Z"
+              			"updatedAt": "2018-09-13T11:32:41.140Z"
               		},
               		{
               			"id": "4f83438e-7e0b-50e3-b491-0fbdb758fde9",
@@ -1070,7 +1070,7 @@ paths:
               				"profile": "contributor"
               			}],
               			"createdAt": "2018-09-13T14:07:01.210Z",
-              			"updatedAt": "2018-09-13T14:07:01.210Z"
+              			"updatedAt": "2018-09-13T10:07:01.210Z"
               		},
               		{
               			"id": "ddae2b39-8eb6-5b42-a7dc-401a45342b60",
@@ -1094,7 +1094,7 @@ paths:
               				"profile": "contributor"
               			}],
               			"createdAt": "2018-09-13T11:50:40.808Z",
-              			"updatedAt": "2018-09-13T11:50:40.808Z"
+              			"updatedAt": "2018-09-13T12:50:40.808Z"
               		},
               		{
               			"id": "43cad8e3-3bd1-58fe-8fd5-f896bc2830d9",
@@ -1106,7 +1106,7 @@ paths:
               				"profile": "contributor"
               			}],
               			"createdAt": "2018-09-13T11:50:20.778Z",
-              			"updatedAt": "2018-09-13T11:50:20.778Z"
+              			"updatedAt": "2018-09-13T13:50:20.778Z"
               		},
               		{
               			"id": "884b1aa4-c432-5d25-9fb1-5628a16f6006",
@@ -1118,7 +1118,7 @@ paths:
               				"profile": "contributor"
               			}],
               			"createdAt": "2018-09-13T11:50:00.900Z",
-              			"updatedAt": "2018-09-13T11:50:00.900Z"
+              			"updatedAt": "2018-09-13T14:50:00.900Z"
               		},
               		{
               			"id": "823328c0-c60f-5d6c-9ced-9faa9ff7d93e",
@@ -1130,7 +1130,7 @@ paths:
               				"profile": "contributor"
               			}],
               			"createdAt": "2018-09-13T11:49:40.809Z",
-              			"updatedAt": "2018-09-13T11:49:40.809Z"
+              			"updatedAt": "2018-09-13T15:49:40.809Z"
               		},
               		{
               			"id": "a1476b32-e459-57a5-987e-431abaa7d4f7",
@@ -1142,7 +1142,7 @@ paths:
               				"profile": "contributor"
               			}],
               			"createdAt": "2018-09-13T11:49:20.942Z",
-              			"updatedAt": "2018-09-13T11:49:20.942Z"
+              			"updatedAt": "2018-09-13T16:49:20.942Z"
               		},
               		{
               			"id": "eca6748f-7a64-5e91-b51c-e7faffeafda8",
@@ -1154,7 +1154,7 @@ paths:
               				"profile": "contributor"
               			}],
               			"createdAt": "2018-09-13T11:49:20.940Z",
-              			"updatedAt": "2018-09-13T11:49:20.940Z"
+              			"updatedAt": "2018-09-13T17:49:20.940Z"
               		},
               		{
               			"id": "f860d05f-49c5-5021-8ad1-6051d3dcb7cd",
@@ -1166,7 +1166,7 @@ paths:
               				"profile": "contributor"
               			}],
               			"createdAt": "2018-09-13T11:48:20.978Z",
-              			"updatedAt": "2018-09-13T11:48:20.978Z"
+              			"updatedAt": "2018-09-13T18:48:20.978Z"
               		},
               		{
               			"id": "27ba4011-9bc8-5236-9161-d87737a28f44",
@@ -1178,7 +1178,7 @@ paths:
               				"profile": "contributor"
               			}],
               			"createdAt": "2018-09-13T10:00:40.717Z",
-              			"updatedAt": "2018-09-13T10:00:40.717Z"
+              			"updatedAt": "2018-09-13T19:00:40.717Z"
               		}
               	]
               }
