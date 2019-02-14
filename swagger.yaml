@@ -1372,6 +1372,7 @@ paths:
               				"category": [],
               				"attribute": [],
               				"summary": {},
+              				"contributor:" [],
               				"media": [],
               				"related": [{
               					"type": "series",
@@ -1428,6 +1429,7 @@ paths:
               					"short": "Presented by Dan Walker and Naga Munchetty",
               					"medium": "A round-up of national and international news, plus current affairs, arts and entertainment, and weather. Presented by Dan Walker and Naga Munchetty"
               				},
+              				"contributor": [],
               				"media": [],
               				"related": [{
               					"type": "series",
@@ -1578,6 +1580,7 @@ paths:
               					"short": "Icelandic crime drama, starring Magnús Jónsson"
               				},
               				"media": [],
+              				"contributor": [],
               				"related": [{
               					"type": "series",
               					"id": "5c6f9b04-ed1f-5c64-b4da-44527804f319",
@@ -1620,6 +1623,7 @@ paths:
               				"summary": {
               					"short": "All4 on demand platform"
               				},
+              				"contributor": [],
               				"media": [],
               				"related": [{
               					"type": "series",
@@ -1655,6 +1659,7 @@ paths:
               					"medium": "Drama following the lives and loves of young people in Chester",
               					"long": "Drama following the lives and loves of a group of teenagers and young adults in Chester"
               				},
+              				"contributor": [],
               				"media": [],
               				"related": [{
               					"type": "series",
@@ -1730,6 +1735,7 @@ paths:
               				"summary": {
               					"short": "Icelandic crime drama, starring Magnús Jónsson"
               				},
+              				"contributor": [],
               				"media": [],
               				"related": [{
               					"type": "series",
@@ -1774,6 +1780,7 @@ paths:
               					"short": "All4 on demand platform"
               				},
               				"media": [],
+              				"contributor": [],
               				"related": [{
               					"type": "series",
               					"id": "5b1ff7e7-5cbc-5e80-a9b3-1b065d384ac9",
@@ -1809,6 +1816,7 @@ paths:
               					"long": "Drama following the lives and loves of a group of teenagers and young adults in Chester"
               				},
               				"media": [],
+              				"contributor": [],
               				"related": [{
               					"type": "series",
               					"id": "895826b7-cce2-52fb-91bd-46419c793880",
