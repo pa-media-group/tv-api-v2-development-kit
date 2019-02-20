@@ -293,7 +293,7 @@ paths:
           default: true
           description: Flag to display Legacy and Provider Ids.
 
-        - name: start
+        - name: date
           in: query
           required: false
           default: 2018-09-15
