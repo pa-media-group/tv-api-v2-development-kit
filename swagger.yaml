@@ -472,7 +472,7 @@ paths:
               		"hd"
               	],
               	"meta": {
-              		"live-stream": "http://www.bbc.co.uk/tv/bbcone/live"
+              		"live-stream": "https://www.bbc.co.uk/tv/bbcone/live"
               	},
               	"category": [{
               		"code": "entertainment",
@@ -1835,4 +1835,301 @@ paths:
               			}
               		}
               	]
+              }
+  /catalogue:
+    get:
+      description: Return a collection of Catalogues.
+      summary: Catalogue Collection
+      tags:
+        - Catalogue (Coming Soon)
+      operationId: listCatalogues
+      security:
+        - apikey: [ ]
+      produces:
+        - application/json
+      responses:
+        200:
+          description: ''
+          schema:
+            type: object
+          examples:
+            application/json: |-
+              {
+                  "hasNext": false,
+                  "total": 3,
+                  "items": [{
+                    "id": "f55530eb-d12f-40aa-8b20-e2fa4361cc24",
+                    "name": "Amazon Prime",
+                    "namespace": "catalogue:amazon-prime"
+                  }, {
+                    "id": "a2815ecc-dae1-521d-930a-43333e266c86",
+                    "name": "BBC iPlayer",
+                    "namespace": "catalogue:iplayer"
+                  }, {
+                    "id": "3e8bf6a5-5910-56f1-8070-ecea9143e89e",
+                    "name": "Netflix",
+                    "namespace": "catalogue:netflix"
+                  }]
+              }
+
+  /catalogue/{catalogueId}:
+    get:
+      description: Return the content of the selected catalogue.
+      summary: Catalogue Detail
+      tags:
+        - Catalogue (Coming Soon)
+      operationId: getCatalogue
+      security:
+        - apikey: [ ]
+      produces:
+        - application/json
+      parameters:
+        - name: catalogueId
+          in: path
+          required: true
+          type: string
+          description: The identifier for the selected catalogue.
+      responses:
+        200:
+          description: ''
+          schema:
+            type: object
+          examples:
+            application/json: |-
+              {
+                "id": "f55530eb-d12f-40aa-8b20-e2fa4361cc24",
+                "name": "Amazon Prime",
+                "namespace": "catalogue:amazon-prime"
+              }
+
+  /catalogue/{catalogueId}/asset:
+    get:
+      description: Return the content of the selected catalogue.
+      summary: Catalogue Content
+      tags:
+        - Catalogue (Coming Soon)
+      operationId: getCatalogueAsset
+      security:
+        - apikey: [ ]
+      produces:
+        - application/json
+      parameters:
+        - name: catalogueId
+          in: path
+          required: true
+          type: string
+          description: The identifier for the selected catalogue.
+      responses:
+        200:
+          description: ''
+          schema:
+            type: object
+          examples:
+            application/json: |-
+              {
+                "hasNext": false,
+                "total": 93,
+                "item": [
+                  {
+                    "id": "f55530eb-d12f-40aa-8b20-e2fa4361cc24",
+                    "title": "The Hole",
+                    "availibility": {
+                      "start": "2020-12-22T14:15:00Z",
+                      "end": "2021-03-22T14:15:00Z"
+                    },
+                    "deeplink": [
+                      {
+                        "rel": "bbc-iplayer-playback",
+                        "href": "https://www.live.bbctvapps.co.uk/tap/iplayer/tv/playback/b0872vmq"
+                      },
+                      {
+                        "rel": "bbc-iplayer",
+                        "href": "https://www.live.bbctvapps.co.uk/tap/iplayer"
+                      },
+                      {
+                        "rel": "bbc-iplayer-ait",
+                        "href": "https://www.live.bbctvapps.co.uk/tap/iplayer/ait/launch/iplayer.aitx"
+                      }
+                    ],
+                    "asset": {
+                      "id": "04ae6b98-6e5f-5f76-a879-16b04d8ade0b",
+                      "type": "movie",
+                      "title": "The Hole",
+                      "runtime": 91,
+                      "productionYear": 2009,
+                      "certification": {
+                        "bbfc": "12"
+                      },
+                      "meta": {},
+                      "category": [
+                        {
+                          "code": "movie-drama",
+                          "name": "Movie/Drama",
+                          "dvb": "1000"
+                        },
+                        {
+                          "code": "movie-drama:horror",
+                          "name": "Horror",
+                          "dvb": "1F03"
+                        }
+                      ],
+                      "attribute": [],
+                      "summary": {
+                        "short": "Horror, starring Chris Massoglia",
+                        "medium": "Three kids discover a mysterious hole in a basement that leads to a strange world where they must face their worst fears. Horror, starring Chris Massoglia and Haley Bennett",
+                        "long": "Two brothers left alone in their new house discover a mysterious hole in the basement. Aided by a girl living next door, they explore the dark depths in search of treasure, only to end up in a strange world where they must each face their own worst fears. Joe Dante's horror, starring Chris Massoglia, Haley Bennett, Nathan Gamble, Teri Polo and Bruce Dern"
+                      },
+                      "contributor": [
+                        {
+                          "id": "a740ab1c-69b5-5e46-ae6c-ea2894940bec",
+                          "name": "Chris Massoglia",
+                          "meta": {},
+                          "media": [],
+                          "character": [
+                            {
+                              "type": "actor",
+                              "name": "Dane"
+                            }
+                          ],
+                          "role": [
+                              "actor"
+                          ]
+                        },
+                        {
+                          "id": "e8c1460b-7348-5620-8641-40172762d925",
+                          "name": "Haley Bennett",
+                          "meta": {},
+                          "media": [],
+                          "character": [
+                            {
+                              "type": "actor",
+                              "name": "Julie"
+                            }
+                          ],
+                          "role": [
+                              "actor"
+                          ]
+                        },
+                        {
+                          "id": "d8abeab7-efc3-57cf-b3f1-c7b4f0347c4a",
+                          "name": "Nathan Gamble",
+                          "meta": {},
+                          "media": [],
+                          "character": [
+                            {
+                              "type": "actor",
+                              "name": "Lucas"
+                            }
+                          ],
+                          "role": [
+                              "actor"
+                          ]
+                        },
+                        {
+                          "id": "070c70d5-af59-5a3e-8715-943281b72c96",
+                          "name": "Teri Polo",
+                          "meta": {},
+                          "media": [],
+                          "character": [
+                            {
+                              "type": "actor",
+                              "name": "Susan"
+                            }
+                          ],
+                          "role": [
+                              "actor"
+                          ]
+                        },
+                        {
+                          "id": "e325fc7a-a985-5bbe-8d89-99003960bfbc",
+                          "name": "Bruce Dern",
+                          "meta": {},
+                          "media": [],
+                          "character": [
+                            {
+                              "type": "actor",
+                              "name": "Creepy Carl"
+                            }
+                          ],
+                          "role": [
+                              "actor"
+                          ]
+                        },
+                        {
+                          "id": "418fe6d6-7df1-5012-a367-56abdc3e3c44",
+                          "name": "Quinn Lord",
+                          "meta": {},
+                          "media": [],
+                          "character": [
+                            {
+                              "type": "actor",
+                              "name": "Annie Smith"
+                            }
+                          ],
+                          "role": [
+                              "actor"
+                          ]
+                        },
+                        {
+                          "id": "bf1dc78e-73bf-58c7-aa17-e820e20d32ed",
+                          "name": "Mark Pawson",
+                          "meta": {},
+                          "media": [],
+                          "character": [
+                            {
+                              "type": "actor",
+                              "name": "Travis"
+                            }
+                          ],
+                          "role": [
+                              "actor"
+                          ]
+                        },
+                        {
+                          "id": "d8221daf-c1c5-54ff-b7a3-b2b696edf6e1",
+                          "name": "Merritt Patterson",
+                          "meta": {},
+                          "media": [],
+                          "character": [
+                            {
+                              "type": "actor",
+                              "name": "Jessica"
+                            }
+                          ],
+                          "role": [
+                              "actor"
+                          ]
+                        },
+                        {
+                          "id": "477fe6b3-35b9-5127-aa4e-125285010eb7",
+                          "name": "Joe Dante",
+                          "meta": {},
+                          "media": [],
+                          "character": [],
+                          "role": [
+                              "director"
+                          ]
+                        }
+                      ],
+                      "media": [
+                        {
+                          "kind": "image:asset",
+                          "copyright": "© 2009 Ed Araquel/Bold FIlms/sky",
+                          "rendition": {
+                            "default": {
+                              "href": "https://tv.assets.pressassociation.io/6caf8bc9-2bb9-53f6-b145-8fe056fa7395.jpg"
+                            }
+                          }
+                        }
+                      ],
+                      "related": [],
+                      "link": [
+                        {
+                          "rel": "contributor",
+                          "href": "https://tv.api.pressassociation.io/v2/asset/04ae6b98-6e5f-5f76-a879-16b04d8ade0b/contributor"
+                        }
+                      ]
+                    }
+                  }
+                ]
               }
