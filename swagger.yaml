@@ -1937,7 +1937,7 @@ paths:
                       "start": "2020-12-22T14:15:00Z",
                       "end": "2021-03-22T14:15:00Z"
                     },
-                    "deeplink": [
+                    "link": [
                       {
                         "rel": "bbc-iplayer-playback",
                         "href": "https://www.live.bbctvapps.co.uk/tap/iplayer/tv/playback/b0872vmq"
