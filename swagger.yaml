@@ -1919,6 +1919,50 @@ paths:
           required: true
           type: string
           description: The identifier for the selected catalogue.
+
+        - name: title
+          in: query
+          required: false
+          type: string
+          description: The query string for a title search
+
+        - name: start
+          in: query
+          required: false
+          type: string
+          pattern: date-time
+          default: '2015-05-05T00:00:00'
+          description: The Start Date for the catalogue date range.
+
+        - name: end
+          in: query
+          required: false
+          type: string
+          default: '2015-05-06T00:00:00'
+          pattern: date-time
+          description: The End Date for the catalogue date range.
+
+        - name: updatedAfter
+          in: query
+          required: false
+          type: string
+          default: '2015-05-06T00:00:00'
+          pattern: date-time
+          description: Retrieve items only that have been updated after this point.
+
+        - name: limit
+          in: query
+          required: false
+          type: number
+          default: 500
+          description: Restrict number of returned items Min = 1, Max = 500.
+
+        - name: aliases
+          in: query
+          required: false
+          type: boolean
+          default: true
+          description: Flag to display Legacy and Provider Ids.
       responses:
         200:
           description: ''
@@ -2133,3 +2177,70 @@ paths:
                   }
                 ]
               }
+  /catalogue/{catalogueId}/asset/{assetId}:
+    get:
+      description: Return the content of the selected catalogue asset.
+      summary: Catalogue Asset Content
+      tags:
+        - Catalogue Asset
+      operationId: getCatalogueAssetDetail
+      security:
+        - apikey: [ ]
+      produces:
+        - application/json
+      parameters:
+        - name: catalogueId
+          in: path
+          required: true
+          type: string
+          description: The identifier for the selected catalogue.
+
+        - name: assetId
+          in: path
+          required: true
+          type: string
+          description: The identifier for the selected catalogue asset.
+      responses:
+        200:
+          description: ''
+          schema:
+            type: object
+          examples:
+            application/json: |-
+            {
+              "id": "44cc7da6-6a71-5d4c-a943-c8f457945aa0",
+              "title": "House Guest",
+              "number": 2,
+              "season": 3,
+              "certification": {
+                "netflix": "U"
+              },
+              "meta": {
+                "cast": "Jasmine St. Clair,Allegra Clark,Rosamund Marks,Faye Mata,Kira Buckland,David Roach,Brad Venable",
+                "directors": "Andrew Tan,Stephen Murray",
+                "genres": "Kids' Music,Kids' TV,TV Cartoons",
+                "episode": 2,
+                "season": 3
+              },
+              "attribute": [],
+              "media": [],
+              "summary": {
+                "long": "When Dr. Alvah and her gruff friends move into the Friendship House, the girls must find a new spot to hang out."
+              },
+              "link": [
+                {
+                  "rel": "asset",
+                  "href": "https://tv.api.pressassociation.io/v2/asset/031fa01e-7acf-58d9-95e2-8df67afa860c"
+                }
+              ],
+              "availability": {
+                "start": "2022-07-17T00:00:00.000Z",
+                "region": "UK"
+              },
+              "deeplink": [
+                {
+                  "rel": "url",
+                  "href": "https://www.netflix.com/browse?jbv=81279856"
+                }
+              ]
+            }
