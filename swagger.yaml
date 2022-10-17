@@ -1841,7 +1841,7 @@ paths:
       description: Return a collection of Catalogues.
       summary: Catalogue Collection
       tags:
-        - Catalogue (Coming Soon)
+        - Catalogue
       operationId: listCatalogues
       security:
         - apikey: [ ]
@@ -1877,7 +1877,7 @@ paths:
       description: Return the content of the selected catalogue.
       summary: Catalogue Detail
       tags:
-        - Catalogue (Coming Soon)
+        - Catalogue
       operationId: getCatalogue
       security:
         - apikey: [ ]
@@ -1907,7 +1907,7 @@ paths:
       description: Return the content of the selected catalogue.
       summary: Catalogue Content
       tags:
-        - Catalogue (Coming Soon)
+        - Catalogue
       operationId: getCatalogueAsset
       security:
         - apikey: [ ]
