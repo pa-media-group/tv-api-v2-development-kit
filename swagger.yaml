@@ -1905,7 +1905,7 @@ paths:
   /catalogue/{catalogueId}/asset:
     get:
       description: Return the content of the selected catalogue.
-      summary: Catalogue Content
+      summary: Catalogue Asset Collection
       tags:
         - Catalogue
       operationId: getCatalogueAsset
@@ -2180,7 +2180,7 @@ paths:
   /catalogue/{catalogueId}/asset/{assetId}:
     get:
       description: Return the content of the selected catalogue asset.
-      summary: Catalogue Asset Content
+      summary: Catalogue Asset Detail
       tags:
         - Catalogue
       operationId: getCatalogueAssetDetail
