@@ -2207,40 +2207,40 @@ paths:
             type: object
           examples:
             application/json: |-
-            {
-              "id": "44cc7da6-6a71-5d4c-a943-c8f457945aa0",
-              "title": "House Guest",
-              "number": 2,
-              "season": 3,
-              "certification": {
-                "netflix": "U"
-              },
-              "meta": {
-                "cast": "Jasmine St. Clair,Allegra Clark,Rosamund Marks,Faye Mata,Kira Buckland,David Roach,Brad Venable",
-                "directors": "Andrew Tan,Stephen Murray",
-                "genres": "Kids' Music,Kids' TV,TV Cartoons",
-                "episode": 2,
-                "season": 3
-              },
-              "attribute": [],
-              "media": [],
-              "summary": {
-                "long": "When Dr. Alvah and her gruff friends move into the Friendship House, the girls must find a new spot to hang out."
-              },
-              "link": [
-                {
-                  "rel": "asset",
-                  "href": "https://tv.api.pressassociation.io/v2/asset/031fa01e-7acf-58d9-95e2-8df67afa860c"
-                }
-              ],
-              "availability": {
-                "start": "2022-07-17T00:00:00.000Z",
-                "region": "UK"
-              },
-              "deeplink": [
-                {
-                  "rel": "url",
-                  "href": "https://www.netflix.com/browse?jbv=81279856"
-                }
-              ]
-            }
+              {
+                "id": "44cc7da6-6a71-5d4c-a943-c8f457945aa0",
+                "title": "House Guest",
+                "number": 2,
+                "season": 3,
+                "certification": {
+                  "netflix": "U"
+                },
+                "meta": {
+                  "cast": "Jasmine St. Clair,Allegra Clark,Rosamund Marks,Faye Mata,Kira Buckland,David Roach,Brad Venable",
+                  "directors": "Andrew Tan,Stephen Murray",
+                  "genres": "Kids' Music,Kids' TV,TV Cartoons",
+                  "episode": 2,
+                  "season": 3
+                },
+                "attribute": [],
+                "media": [],
+                "summary": {
+                  "long": "When Dr. Alvah and her gruff friends move into the Friendship House, the girls must find a new spot to hang out."
+                },
+                "link": [
+                  {
+                    "rel": "asset",
+                    "href": "https://tv.api.pressassociation.io/v2/asset/031fa01e-7acf-58d9-95e2-8df67afa860c"
+                  }
+                ],
+                "availability": {
+                  "start": "2022-07-17T00:00:00.000Z",
+                  "region": "UK"
+                },
+                "deeplink": [
+                  {
+                    "rel": "url",
+                    "href": "https://www.netflix.com/browse?jbv=81279856"
+                  }
+                ]
+              }
