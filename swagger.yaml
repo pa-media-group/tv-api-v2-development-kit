@@ -2182,7 +2182,7 @@ paths:
       description: Return the content of the selected catalogue asset.
       summary: Catalogue Asset Content
       tags:
-        - Catalogue Asset
+        - Catalogue
       operationId: getCatalogueAssetDetail
       security:
         - apikey: [ ]
