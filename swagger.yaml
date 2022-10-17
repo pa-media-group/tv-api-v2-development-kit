@@ -1942,7 +1942,7 @@ paths:
           pattern: date-time
           description: The End Date for the catalogue date range.
 
-        - name: updateAfter
+        - name: updatedAfter
           in: query
           required: false
           type: string
